@@ -26,9 +26,15 @@ Able to view all available movies
 
 	User: Authenticated
 Full access to the platform
+
 Allow upload of short movies (not more than 15 minutes)
+
 User must be a verified college student
+
 Watch films uploaded by others
+
 Comments, react and share movies
+
 Show usage example to users
+
 Allow user save data and come back to download
