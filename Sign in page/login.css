@@ -1,0 +1,62 @@
+body {
+    font-family: sans-serif;
+  }
+  
+  .sign-in-page {
+    width: 90%;
+  }
+  
+  .sign-up-button a {
+     background: rgba(117, 117, 199, 1);
+  
+    color: white;
+  }
+  
+  .header-text h1 {
+    color: rgba(117, 117, 199, 1);;
+  }
+  
+  .forgot-password {
+    text-decoration: none;
+  }
+  
+  .submit-button {
+    width: 100%;
+    background-color: rgba(117, 117, 199, 1);;
+    color: white;
+  }
+  .google-button {
+    width: 100%;
+    color: rgb(66, 66, 148);
+  }
+  .google-button svg {
+    width: 20px;
+  }
+  
+  .start {
+    left: 10px;
+  }
+  
+  .sign-up-link {
+    text-decoration: none;
+  }
+  
+  
+  @media only screen and (min-width: 768px) {
+    .res {
+      max-width: 80%;
+    }
+  }
+  
+  @media only screen and (min-width: 992px) {
+    .res {
+      max-width: 60%;
+    }
+  }
+  
+  @media only screen and (min-width: 1200px) {
+    .res {
+      max-width: 50%;
+    }
+  }
+  
