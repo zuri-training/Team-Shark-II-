@@ -1,22 +1,18 @@
-/* html, body {
-  height: 100%;
-  width: 100%;
-}
- */
-/* html, body {
-  height: 100%;
-  width: 100%;
-}
- */
+
+
  @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Inter:wght@400;700;800&family=Lexend+Deca:wght@200;400&family=Montserrat:wght@100;500&family=Poppins&display=swap'); 
  *{
      margin: 0;
      padding: 0;
  }
+ html, body {
+  height: 100%;
+  width: 100%;
+}
+
  body{
-     width: 100%;
-     height: 100%;
      font-family: 'Inter', sans-serif;
+     overflow-x: hidden;
  }
  :root{
      --primary-color: #000072;
@@ -89,7 +85,6 @@
    
    /* Dropdown button */
    .dropdown .dropbtn {
-     /* font-size: 16px; */
      border: none;
      outline: none;
      color: var(--primary-color-2);
@@ -477,6 +472,7 @@
      margin-left: auto;
      padding-bottom: 30px;
      display: flex;
+     font-display: row;
      gap: 50%;
      justify-content: center;
      align-items: center;
@@ -498,7 +494,11 @@
  }
  
  /*MOBILE VIEW*/
-@media  screen and (max-width: 425px) {
+    @media screen and (min-width:320px) and (max-width:767px){
+        /* body{
+            overflow-x: hidden;
+            border: 1px solid;
+        } */
     nav{
         display: flex;
         flex-direction: row;
@@ -507,7 +507,7 @@
         align-items: center;
         justify-content: space-between;
         margin: 0px 0px 0px 0px;
-        padding: 20px 0 20px 0;
+        padding: -10px 0 -10px 0;
         background-color: var(--background);
     }
     nav a{
@@ -519,16 +519,28 @@
       padding-top: 10px;
         font-size: 24px;
     }
+ 
     .menu_items{
-        /* display: none; */
         visibility: hidden;
     }
-    .sidebar{
-        display: block;
-        position: relative;
+    main{
+        margin-top: -50px;
     }
-    .sidebar{
-        position: absolute;
+   
+     .sidebar{
+       display: block;
+    } 
+    .sidebar i{
+        color: var(--primary-color-2);
+        font-size: 20px;
+        margin-right: 20px;
+    }
+    .menu_items{
+        display: flex;
+        flex-direction: column;
+    }
+    .buttons{
+        display: none;
     }
     .hero_img{
         display: flex;
@@ -564,15 +576,20 @@
         text-align: left;
         display: flex;
         flex-direction: column;
+        /* gap: 150px; */
+    }
+    .accesss_text{
+        height: 300px;
+        margin-bottom: 100px;
     }
     .accesss_text h2{
-        margin: 50px auto 50px auto;
+        margin: 50px auto 20px auto;
         text-align: left;
         color: var(--primary-color-2);
         font-weight: 700;
     }
     .accesss_text p{
-        margin-left: auto;
+        margin-left: 70px;
         text-align: left;
         font-weight: 700;
         line-height: 24px;
@@ -581,7 +598,8 @@
     .access_img_mj img{
         padding: auto;
         height: max-content;
-        width: fit-content;
+        width: 100vw;
+        justify-content: center;
     }
     .blog{
         width: 100%;
@@ -593,12 +611,14 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-top: 150px;
-        padding-bottom: 80px;
+        margin-top: 300px;
+        padding-bottom: 250px;
+        gap: 100px;
+        
     }
     
     h2{
-        margin: 250px auto -100px auto;
+        margin: 300px auto -250px auto;
         color: var(--primary-color-2);
         text-align: center
      }
@@ -610,14 +630,11 @@
         width: 300px;
         height: auto;
     }
-
-
-
-
-
-
-
-    .newsletter_subscription_form{
+    .newsletter h2{
+        margin-top: -130px;
+    }
+ .newsletter_subscription_form{
+    margin-top: 280px;
         display: flex;
         flex-direction: column;
        gap: 10px;
@@ -659,7 +676,10 @@
 
 
 /*TABLET*/
-@media  screen and (max-width: 768px) {
+    @media screen and (min-width:768px) and (max-width:1024px){
+        /* body{
+            border: 1px solid;
+        } */
     nav a{
         font-size: 20px;
     }
@@ -669,6 +689,9 @@
     .menu_items{
         justify-content: space-between;
         gap: 10px;
+    }
+    .sidebar{
+        display: none;
     }
 
     .hero_img{
@@ -731,10 +754,10 @@
         flex-direction: row;
         justify-content: center;
         margin-top: 130px;
-        margin-bottom: 100px;
+        margin-bottom: 50px;
     }
     .blog h2{
-        margin-top: 30px ;
+        margin: 30px 0 -100px 0;
     }
     .how_to_edit{
         width: 364px;
@@ -744,14 +767,27 @@
         width: 300px;
         height: auto;
     }
+    .newsletter{
+        margin-top: 150px;
+    }
+    .newsletter h2{
+        margin-top: -150px;
+    }
     .newsletter_subscription_form{
         display: flex;
         flex-direction: row;
         gap: 0;
+        margin-top: 120px;
     }
     .column_container:not(1){
         display: block;
     
+    }
+    footer .logo{
+   
+        margin: 20px 0px 10px 110px;
+        font-size: 20px;
+   
     }
     .copyright_and_brand_icons{
         display: flex;
@@ -767,8 +803,4 @@
         color: var(--logo-color);
         font-size: 24px;
     }
-
-
-
-
 } 
