@@ -6,12 +6,6 @@ body {
     width: 90%;
   }
   
-  .sign-up-button a {
-     background: rgba(117, 117, 199, 1);
-  
-    color: white;
-  }
-  
   .header-text h1 {
     color: rgba(117, 117, 199, 1);;
   }
