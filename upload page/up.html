@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Upload page</title>
+    <link rel="stylesheet" href="up.css">
+</head>
+<script src="up.js"></script>
+<body>
+    <div class="container">
+        <!--Nav bar open-->
+        <nav>
+            <i class="fa fa-bars menu" aria-hidden="true"></i>
+            <div class="search-bar">
+                <input type="text" placeholder="Search anything" name="Q" class="search-txt">
+                <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+            </div>
+            <div class="profile">
+                <i class="fa fa-video-camera alarm" aria-hidden="true"></i>
+                <i class="fa-regular fa-bell"></i>
+                <img src="profile.png" alt="" width="40px">
+            </div>
+        </nav>
+    </div>
+    <!--Section page-->
+    <div class="container">
+        <section>
+            <ul>
+                <li><a href="dash.html"><i class="fas fa-home"></i>
+                        <span class="nav-item">Home</span></i>
+                    </a>
+                </li>
+                <li><a href=""><i class="fas fa fa-video-camera" aria-hidden="true"></i>
+                        <span class="nav-item">Watch later</span>
+                    </a>
+                </li>
+                <li><a href=""><i class="fas fa-wallet"></i>
+                        <span class="nav-item">My videos</span>
+                    </a>
+                </li>
+
+                <li><a href=""><i class="fas fa-cog"></i>
+                        <span class="nav-item">Settings</span>
+                    </a>
+                </li>
+                <li><a href=""><i class="fas fa-question-circle"></i>
+                        <span class="nav-item">help</span>
+                    </a>
+                </li>
+
+                <li><a href="" class="logout"><i class="fas fa-sign-out-alt"></i>
+                        <span class="nav-item">Logout</span>
+                    </a>
+                </li>
+                </li>
+            </ul>
+        </section>
+        <!---Table-->
+        <div class="main">
+            <div class="main-top">
+                <h3>
+                    My uploads
+                </h3>
+                <button class="btn"> Upload a video</button>
+            </div>
+            <table class="content-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>status</th>
+                        <th>Upload date</th>
+                        <th>view</th>
+                        <th>Comments</th>
+                        <th>likes</th>
+                        <th>Dislike</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Mark Angel</td>
+                        <td>Archived</td>
+                        <td>2020-02-04</td>
+                        <td>34k views</td>
+                        <td>9,328</td>
+                        <td>7,4k views</td>
+                        <td>93k views</td>
+                        <td><i class="fa fa-trash-o" aria-hidden="true"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Ase</td>
+                        <td>Archived</td>
+                        <td>2020-02-04</td>
+                        <td>34k views</td>
+                        <td>9,328</td>
+                        <td>7,4k views</td>
+                        <td>93k views</td>
+                        <td><i class="fa fa-trash-o" aria-hidden="true"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Single and happy teenage hood</td>
+                        <td>Archived</td>
+                        <td>2020-02-04</td>
+                        <td>34k views</td>
+                        <td>9,328</td>
+                        <td>7,4k views</td>
+                        <td>93k views</td>
+                        <td><i class="fa fa-trash-o" aria-hidden="true"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Traveling to the Happiest Country in the World!!</td>
+                        <td>Archived</td>
+                        <td>2020-02-04</td>
+                        <td>34k views</td>
+                        <td>9,328</td>
+                        <td>7,4k views</td>
+                        <td>93k views</td>
+                        <td><i class="fa fa-trash-o" aria-hidden="true"></i></td>
+                    </tr>
+                    <tr class="active-row">
+                        <td>What travel is really like in 2020!</td>
+                        <td>Archived</td>
+                        <td>2020-02-04</td>
+                        <td>34k views</td>
+                        <td>9,328</td>
+                        <td>7,4k views</td>
+                        <td>93k views</td>
+                        <td><i class="fa fa-trash-o" aria-hidden="true"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Why Travel Will Never be the Same</td>
+                        <td>Archived</td>
+                        <td>2020-02-04</td>
+                        <td>34k views</td>
+                        <td>9,328</td>
+                        <td>7,4k views</td>
+                        <td>93k views</td>
+                        <td><i class="fa fa-trash-o" aria-hidden="true"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+ <!-- -Footer-->
+ <footer>
+    <div class="logo">GREENHOOD</div>
+    <div class="column_container">
+      <div class="column">
+        <ul>
+          <li><a href="">About Us</a></li>
+          <li><a href="">Vision</a></li>
+          <li><a href="">Careers</a></li>
+          <li><a href="">Terms of Service</a></li>
+          <li><a href="">Donate</a></li>
+        </ul>
+      </div>
+      <div class="column">
+        <ul>
+          <li><a href="">Discover</a></li>
+          <li><a href="">Home</a></li>
+          <li><a href="">Videos</a></li>
+          <li><a href="">Content Creators</a></li>
+          <li><a href="">Advanced Search</a></li>
+        </ul>
+      </div>
+      <div class="column">
+        <ul>
+          <li><a href="">Help</a></li>
+          <li><a href="">Help Centre</a></li>
+          <li><a href="">Report a problem</a></li>
+          <li><a href="">Suggesting Edits</a></li>
+          <li><a href="">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright_and_brand_icons">
+      <div class="copyright">
+        <span>&copy</span> 2022, Col-Films by Team Shark II
+      </div>
+      <div class="brand_icons">
+        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-square-twitter"></i></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></i></a>
+      </div>
+    </div>
+</footer>
+
+</html>
