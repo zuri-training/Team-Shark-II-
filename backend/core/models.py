@@ -55,8 +55,9 @@ class Reel(models.Model):
         _("long description"),
         help_text=_("Enter a description for your short video")
     )
-    category = models.ManyToManyField(
-        Category, verbose_name=_("video category"),
+    category = models.ForeignKey(
+        Category, on_delete=models.CASCADE,
+verbose_name=_("video category"), null=True,
         help_text=_("choose a category for your short video")
     )
     cover_thumbnail = models.FileField(

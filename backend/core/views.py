@@ -124,6 +124,8 @@ class CustomLogout(LogoutView):
 def video_detail(request, pk):
     #similar posts starts here
     pub = Reel.objects.get(pk=pk)
+    related = Reel.objects.filter(category=pub.category)
+
     #comment starts here
     post = get_object_or_404(Reel, pk=pk)
     comments = pub.commented.filter(active=True).order_by('-date')
@@ -146,6 +148,7 @@ def video_detail(request, pk):
         'comments': comments,
         'new_comment': new_comment,
         'comment_form': comment_form,
+        'related': related,
     }
     return render(request, 'vid.html', context)
 

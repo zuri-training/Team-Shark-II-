@@ -265,7 +265,7 @@ footer {
             <!-- the play video section  -->
             <video src="{{ pub.video.url }}" controls alt="play video" width="500px" height="500px" type="video/mp4">
           </video>
-            <h5>{{pub.title}}</h5>
+            <h5>{{pub.title}} | {{pub.category }}</h5>
             <h5>{{pub.description}}</h5>
 
             {% if request.user == pub.uploader %}
@@ -306,8 +306,14 @@ footer {
 
     </div>
 
-            <h4>Related Videos</h4> <img class="more" src="../Asset Page/assets/images/sidevids.png" alt="Related Videos"
-                width="150px" height="450px">
+            <h4>Related Videos</h4> 
+            {% for video in related %}
+            <div class="card">
+              <a href='{% url "video_detail" video.pk  %}'> <img src="{{video.cover_thumbnail.url}}" alt=""/></a>
+              <h5>{{video.title}}</h5>
+          </div>
+
+            {% endfor %}
     </main>
     <!-- Footer -->
     <footer>
