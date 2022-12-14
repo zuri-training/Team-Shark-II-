@@ -44,7 +44,7 @@ class Category(models.Model):
 
 class Reel(models.Model):
     uploader = models.ForeignKey(
-        settings.AUTH_USER_MODEL, verbose_name=_("uploaded by"),
+        settings.AUTH_USER_MODEL, blank=True, verbose_name=_("uploaded by"),
         on_delete=models.CASCADE
     )
     title = models.CharField(

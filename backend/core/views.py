@@ -164,7 +164,8 @@ class Up(ListView):
 class Upload(LoginRequiredMixin,  CreateView):
     model = Reel
     template_name = 'upload.html'
-    fields = '__all__'
+    fields = ['uploader', 'title','category', 'description', 'cover_thumbnail', 'video']
+    
     redirect_authenticated_user = True
 
     def get_success_url(self):

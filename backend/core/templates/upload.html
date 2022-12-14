@@ -393,7 +393,8 @@ li a {
                     UPLOAD VIDEO 
                 </h3>
 
-                <form method="post">
+                <form method="post" enctype ="multipart/form-data">
+               
                 {% csrf_token %}
                  {{form.as_p}}
                  <button type='submit' style="padding: 0.6em; background: lightblue; color: black;"> Upload</button>

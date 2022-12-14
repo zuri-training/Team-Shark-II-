@@ -260,11 +260,25 @@ footer {
                     </li>
                 </ul>
             </section>
+            
+
             <!-- the play video section  -->
-            <video src = "{{ pub.video.url ))" controls alt="play video" width="500px" height="500px">
-            </video>
+            <video src="{{ pub.video.url }}" controls alt="play video" width="500px" height="500px" type="video/mp4">
+          </video>
             <h5>{{pub.title}}</h5>
             <h5>{{pub.description}}</h5>
+
+            {% if request.user = pub.uploader %}
+            <ul>
+              <li>
+                <a href="{% url 'deleteupload' pub.pk %}">Delete</a>
+              </li>
+              <li>
+                <a href="{% url 'updateupload' pub.pk %}">Delete</a>
+
+              </li>
+            </ul>
+            {% endif %}
 
             <h4>Related Videos</h4> <img class="more" src="../Asset Page/assets/images/sidevids.png" alt="Related Videos"
                 width="150px" height="450px">
