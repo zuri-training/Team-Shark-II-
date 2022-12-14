@@ -18,7 +18,7 @@ from django.template.loader import render_to_string
 from core.token import account_activation_token
 from django.core.paginator import Paginator
 from django.core.mail import send_mail
-
+from django.contrib.auth.decorators import login_required
 
 
 class PasswordReset(PasswordResetView):
@@ -117,3 +117,81 @@ class LoginView(LoginView):
 
 class CustomLogout(LogoutView):
     pass
+
+
+
+@login_required(login_url='login')
+def video_detail(request, pk):
+    #similar posts starts here
+    pub = Reel.objects.get(pk=pk)
+    #comment starts here
+    post = get_object_or_404(Reel, pk=pk)
+    comments = pub.commented.filter(active=True).order_by('-date')
+    new_comment = None
+    if request.method == 'POST':
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            comment_form.instance.author =request.user
+            # Create Comment object but don't save to database yet
+            new_comment = comment_form.save(commit=False)
+            # Assign the current post to the comment
+            new_comment.post = post
+            # Save the comment to the database
+            new_comment.save()
+    else:
+        comment_form = CommentForm()
+
+    context = {
+        'pub': pub,
+        'comments': comments,
+        'new_comment': new_comment,
+        'comment_form': comment_form,
+    }
+    return render(request, 'vid.html', context)
+
+
+class Up(ListView):
+    model = Reel
+    template_name ='up.html'
+    context_object_name = 'reels'
+    
+    def get_context_data(self,  **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['myvid'] = Reel.objects.filter(uploader=self.request.user)
+
+        return context
+
+class Upload(LoginRequiredMixin,  CreateView):
+    model = Reel
+    template_name = 'upload.html'
+    fields = '__all__'
+    redirect_authenticated_user = True
+
+    def get_success_url(self):
+        return reverse_lazy('index')
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super(Upload, self).form_valid(form)
+
+
+class UpdateUpload(LoginRequiredMixin,  UpdateView):
+    model = Reel
+    fields = ['title', 'description', 'video']
+    template_name = 'upload.html'
+    redirect_authenticated_user = True
+
+    def get_success_url(self):
+        return reverse_lazy('video_detail', kwargs={'pk': self.object.pk})
+
+
+
+
+
+class DeleteUpload(LoginRequiredMixin,  DeleteView):
+    model = Reel
+    template_name = 'deleteupload.html'
+    redirect_authenticated_user = True
+
+    def get_success_url(self):
+        return reverse_lazy('index')

@@ -829,29 +829,37 @@
         <div class="menu_items">
             <a href="#home main"><b>Home</b></a>
                 <a  href="#landing" ><b>About</b></a>
+                {% if request.user.is_authenticated %}
               <div class="dropdown">
                 <a  href="../Dashboard page/dash.html" class="dropbtn main"><b>My Videos</b>
                     <i class="fa fa-angle-down"></i>
                 </a>
                     <div class="dropdown-content">
                         <a href="../Play video page/vid.html">Watch Videos</a>
-                        <a href="../Sign in page/login.html">My Uploads</a>
+                        <a href="{% url 'myvideos' %}">My Uploads</a>
                         <a href="../Sign in page/login.html">Liked Videos</a>
                     </div>
+                    {% endif %}
               </div>
         </div>
         <div class="buttons">
             {% if not request.user.is_authenticated %}
+
             <div class="signup">
                <a href='{% url "register" %}'>SignUp</a> 
             </div>
             <div class="login">
                 <a href='{% url "login" %}'>Log In</a> 
             </div>
+            
             {% else %}
+            <div class="sinup">
+                <a href='{% url "login" %}'>Hi {{request.user}}</a> 
+            </div>
             <div class="signup">
                 <a href='{% url "logout" %}'>Logout</a> 
              </div>
+
              {% endif %}
         </div>
         <div class="sidebar">
@@ -882,7 +890,7 @@
         <div class="trnding_movies_container">
             {% for list in reels %}
             <div class="card">
-                <img src="{{list.cover_thumbnail.url}}" alt=""/>
+                <a href='{% url "video_detail" list.pk  %}'> <img src="{{list.cover_thumbnail.url}}" alt=""/></a>
                 <h5>{{list.title}}</h5>
             </div>
             {% endfor %}

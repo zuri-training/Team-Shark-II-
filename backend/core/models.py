@@ -109,6 +109,9 @@ class Comment(models.Model):
         help_text="date comment was made"
     )
 
+    active = models.BooleanField(default=False)
+
+
     class Meta:
         ordering = ['-date', 'user']
 

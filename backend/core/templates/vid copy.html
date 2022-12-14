@@ -1,0 +1,485 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Play Videos</title>
+    <link rel="stylesheet" href="vid.css">
+    <style>
+    @import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Kumbh Sans", sans-serif;
+  max-width: 100%;
+}
+:root{
+  --primary-color: #000072;
+  --primary-color-2: #2121A8;
+  --primary-color-3: #7575C7;
+  --secondary-color: #E1C202;
+  --secondary-color-2:#EEDC6E;
+  --secondary-color-3:#EFE6AE;
+  --tertiary-color: #A1BCC7;
+  --tertiary-color-2:#181818;
+  --tertiary-color-3:#858585;
+  --tertiary-color-4:#B8B8B8;
+  --background: #FFFFFF;
+  --logo-color: #D4B600;
+}
+
+/* header bar  */
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+
+.profile {
+  display: flex;
+  align-items: center;
+}
+.profile img {
+  margin-right: 10px;
+  cursor: pointer;
+}
+.profile img:hover {
+  border: 2px solid var(--tertiary-color-2);
+  border-radius: 50%;
+}
+h2{color: #D4B600;}
+.fa-bars{ color: #000072; font-size: 20px;}
+
+.search-bar {
+  display: flex;
+  border: 1px solid;
+  justify-content: space-between;
+  width: 500px;
+  padding: 10px;
+  border-radius: 5px;
+}
+.search-bar:hover{
+  border: 2px solid var(--secondary-color-2);
+}
+.search-bar input i {
+  background: transparent;
+  font-size: 1rem;
+  color: aliceblue;
+}
+::placeholder {
+  color: #000;
+}
+.search-bar .search-txt {
+  border: none;
+  background: none;
+  outline: none;
+}
+.search-bar button {
+  background: transparent;
+  color: #000;
+  border: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+/* Aside-bar */
+.container {
+    display: flex;
+  }
+  section {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    height: 100vh;
+    background: #fff;
+    width: 280px;
+    overflow: hidden;
+    box-shadow: 0px 20px 35px rgba(0, 0, 0, 0.1);
+  }
+  a {
+    position: relative;
+    color: rgb(85, 85, 83);
+    font-size: 14px;
+    display: table;
+    width: 280px;
+    padding: 10px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  section .fas {
+    position: relative;
+    width: 80px;
+    height: 25px;
+    top: 18px;
+    font-size: 20px;
+    text-align: center;
+  }
+  section ul li {
+    margin-bottom: 10px;
+  }
+  .nav-item {
+    position: relative;
+    top: 18px;
+    margin-left: 10px;
+  }
+  a:hover {
+    color: #000072;
+    font-size: 20px;
+  }
+  .logout {
+    position: absolute;
+  }
+
+  /* video images  */
+h4{ padding-left:70px; font-size: 25px; font-weight: lighter;}
+
+.more{position: absolute;
+right: 25%; 
+top: 20%;}
+
+.play:hover { font-size: 50px; border: #2121A8 solid 3px; cursor: pointer;}
+
+/* footer */
+footer {
+    bottom: 0;
+    margin-top: 5px;
+    padding-top: 5px;
+    background: var(--primary-color-3);
+    height: 55vh;
+    overflow: fixed;
+  }
+  
+  footer .logo {
+    font-family: "Inter", sans-serif;
+    color: var(--logo-color);
+    font-size: 20px;
+    font-weight: 700;
+  }
+  
+  .column_container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    position: relative;
+    bottom: 0;
+  }
+  ul {
+    margin-top: 50px;
+  }
+  li {
+    list-style: none;
+  }
+  li:nth-child(1) {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  li a:nth-child(1) {
+    font-weight: 700;
+  }
+  li a {
+    text-decoration: none;
+    color: var(--tertiary-color-2);
+    font-weight: 400;
+  }
+  
+  .copyright {
+    color: orange;
+  }
+  .copyright span {
+    font-size: 24px;
+  }
+  .brand_icons {
+    display: flex;
+  }
+  .brand_icons i {
+    color: var(--logo-color);
+    font-size: 15px;
+  }
+</style>
+</head>
+<script src="vid.js"></script>
+
+<body>
+    <header>
+        <div class="container1">
+            <!--Nav bar open-->
+            <nav>
+                <i class="fa fa-bars menu" aria-hidden="true"></i>
+                <h2>GREENHOOD</h2>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search" name="Q" class="search-txt">
+                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </div>
+                <div class="profile">
+                    <img src="../upload page/profile.png" alt="" width="40px">
+                    <h5>Megan Pat</h5>
+                </div>
+            </nav>
+    </header>
+    <main>
+        <!--Section page-->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/player.css' %}" />
+{% endblock extra_css %}
+
+{% block title %}
+<title>Play Video</title>
+{% endblock title %}
+
+{% block content %}
+<!-- Player START -->
+<main class="main-video">
+    <div class="video-container">
+        <video src="{{ reel.video.url }}" controls>
+            Your browser doesn't support playing videos
+        </video>
+        {% comment %} <img src="{% static 'images/movie-player-mobile.svg' %}" alt="" class="video-screen-mobile" />
+        <img src="{% static 'images/movie-player-desktop.svg' %}" alt="" class="video-screen-desktop" /> {% endcomment %}
+    </div>
+    <div class="video-center">
+        <div class="video-player-info">
+            <span class="video-title">
+                <h3>{{ reel.title }}</h3>
+            </span>
+            <span class="video-star"><i class="fa-solid fa-star"></i></span>
+            <span class="rating">7.5 / 10</span>
+            <span class="video-views"><i class="fa-regular fa-eye"></i></span>
+            <span class="video-views-number">.600</span>
+        </div>
+        <div class="video-time">
+            <div>
+                <span class="rating">10 mins</span>
+                <span class="rating">
+                    {% for cat in reel.category.all %}
+                        {{ cat.name }},
+                    {% endfor %}
+                </span>
+            </div>
+            <div><span class="rating">{{ reel.iploader.full_name }}</span></div>
+        </div>
+        <div class="video-content">
+            <p>
+                {{ reel.description }}
+            </p>
+        </div>
+        <div class="video-icons-bar">
+            <div class="icons-bar">
+                <span class="icon-button" id="like"><i class="fa-regular fa-thumbs-up"></i></span>
+                <p id="like-number">300</p>
+            </div>
+            <div class="icons-bar">
+                <span class="icon-button" id="dislike"><i class="fa-regular fa-thumbs-down"></i></span>
+                <p id="like-number">Dislike</p>
+            </div>
+            <div class="icons-bar">
+                <span class="icon-button" id="share"><i class="fa-solid fa-share-nodes"></i></span>
+                <p id="like-number">Share</p>
+            </div>
+            <div class="icons-bar">
+                <span class="icon-button" id="bookmark"><i class="fa-regular fa-bookmark"></i></span>
+                <p id="like-number">Save</p>
+            </div>
+        </div>
+        <div class="video-author">
+            <div class="author-title">
+                <h3>About the author</h3>
+            </div>
+            <p class="author-info">
+                Ogechi Obi is a student of the University of Nsukka, studying Mass
+                Communication. As an empathetical individual who believes that everyone
+                has a right to be heard. Through her camera lens, stories are been
+                captured and shared. She is currently serving as the president of Penn's
+                State Studient Association. Her other invlolvements includes Society of
+                Women in Film (SWF) and Mass Communication Students Association (MASCA)
+            </p>
+        </div>
+        <div class="comment-section">
+            <div class="comment-title">
+                <h3>Comments</h3>
+                <span class="com-number" id="comment-number">15</span>
+            </div>
+            <div class="comment-comment">
+                <div>
+                    <div class="user-image-cont">
+                        <img src="{% static 'images/usercom-img.svg' %}" alt="" class="user-com-image" />
+                    </div>
+                </div>
+                <div class="usercom-info">
+                    <div class="username-com">
+                        <h5>John Clark</h5>
+                        <p class="username-comment">
+                            Great work Ogechi, the world needs to hear the truth about poverty
+                            and starvation happening in continents like Asia.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="emoji">
+                <span class="emoji-smile"><i class="fa-regular fa-face-smile"></i></span>
+                <span class="time-spent">6 hours ago</span>
+            </div>
+            <div class="comment-border"></div>
+            <p class="comment-view">View more...</p>
+        </div>
+    </div>
+    <div class="related-videos">
+        <div class="related-title section-title">
+            <h2>related to watch</h2>
+        </div>
+        <div class="related-video-center">
+            <article class="home-videos">
+                <div class="related-video-container">
+                    <img src="{% static 'images/reading.png' %}" alt="" class="trendy" />
+                </div>
+                <h4 class="home--video-title">Reading habits</h4>
+                <p class="home-video-info">By: Jemimah Ameobi</p>
+            </article>
+            <article class="home-videos">
+                <div class="related-video-container">
+                    <img src="{% static 'images/reading.png' %}" alt="" class="trendy" />
+                </div>
+                <h4 class="home--video-title">Reading habits</h4>
+                <p class="home-video-info">By: Jemimah Ameobi</p>
+            </article>
+            <article class="home-videos">
+                <div class="related-video-container">
+                    <img src="{% static 'images/reading.png' %}" alt="" class="trendy" />
+                </div>
+                <h4 class="home--video-title">Reading habits</h4>
+                <p class="home-video-info">By: Jemimah Ameobi</p>
+            </article>
+            <article class="home-videos">
+                <div class="related-video-container">
+                    <img src="{% static 'images/reading.png' %}" alt="" class="trendy" />
+                </div>
+                <h4 class="home--video-title">Reading habits</h4>
+                <p class="home-video-info">By: Jemimah Ameobi</p>
+            </article>
+            <article class="home-videos">
+                <div class="related-video-container">
+                    <img src="{% static 'images/reading.png' %}" alt="" class="trendy" />
+                </div>
+                <h4 class="home--video-title">Reading habits</h4>
+                <p class="home-video-info">By: Jemimah Ameobi</p>
+            </article>
+            <article class="home-videos">
+                <div class="related-video-container">
+                    <img src="{% static 'images/reading.png' %}" alt="" class="trendy" />
+                </div>
+                <h4 class="home--video-title">Reading habits</h4>
+                <p class="home-video-info">By: Jemimah Ameobi</p>
+            </article>
+        </div>
+        <a href="#"><button class="home-video-button home-buttons">See more</button></a>
+    </div>
+</main>
+<!-- Player END -->
+{% endblock content %}
+
+
+
+
+        <div class="container">
+            <section>
+                <ul>
+                    <li><a href="../Dashboard page/dash.html"><i class="fas fa-home"></i>
+                            <span class="nav-item">Home</span></i>
+                        </a>
+                    </li>
+                    <li><a href="_blank"><i class="fas fa fa-video-camera" aria-hidden="true"></i>
+                            <span class="nav-item">Watch later</span>
+                        </a>
+                    </li>
+                    <li><a href="../upload page/up.html"><i class="fas fa-wallet"></i>
+                            <span class="nav-item">My Uploads</span>
+                        </a>
+                    </li>
+
+                    <li><a href="_blank"><i class="fas fa-cog"></i>
+                            <span class="nav-item">Settings</span>
+                        </a>
+                    </li>
+                    <li><a href=""><i class="fas fa-question-circle"></i>
+                            <span class="nav-item">help</span>
+                        </a>
+                    </li>
+
+                    <li><a href="../Landing page/index.html" class="logout"><i class="fas fa-sign-out-alt"></i>
+                            <span class="nav-item">Logout</span>
+                        </a>
+                    </li>
+                    </li>
+                </ul>
+            </section>
+            <!-- the play video section  -->
+            <img class="play" src="../Asset Page/assets/images/video.png" alt="play video" width="500px" height="500px">
+            <h4>Related Videos</h4> <img class="more" src="../Asset Page/assets/images/sidevids.png" alt="Related Videos"
+                width="150px" height="450px">
+    </main>
+    <!-- Footer -->
+    <footer>
+        <div class="logo">GREENHOOD</div>
+    <div class="column_container">
+      <div class="column">
+        <ul>
+          <li><a href="">About Us</a></li>
+          <li><a href="">Vision</a></li>
+          <li><a href="">Careers</a></li>
+          <li><a href="">Terms of Service</a></li>
+          <li><a href="">Donate</a></li>
+        </ul>
+      </div>
+      <div class="column">
+        <ul>
+          <li><a href="">Discover</a></li>
+          <li><a href="">Home</a></li>
+          <li><a href="">Videos</a></li>
+          <li><a href="">Content Creators</a></li>
+          <li><a href="">Advanced Search</a></li>
+        </ul>
+      </div>
+      <div class="column">
+        <ul>
+          <li><a href="">Help</a></li>
+          <li><a href="">Help Centre</a></li>
+          <li><a href="">Report a problem</a></li>
+          <li><a href="">Suggesting Edits</a></li>
+          <li><a href="">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright_and_brand_icons">
+      <div class="copyright">
+        <span>&copy</span> 2022, Col-Films by Team Shark II
+      </div>
+      <div class="brand_icons">
+        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-square-twitter"></i></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></i></a>
+      </div>
+    </div>
+    </footer>
+</body>
+
+</html>
