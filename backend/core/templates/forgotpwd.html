@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content   %}
+
+{% if messages %}
+{% for message in messages %}
+<p style='background: black; color: white; padding: 2em; max-width: 30%; text-align: center;' >{{message|safe}} <br></p>
+{% endfor %}
+{% endif %}
+<h3> Register Now </h3>
+
+<form method ='POST'>
+    {% csrf_token %}
+
+  {{form.as_p}}
+  
+  <input type='submit', value ='Register'/>
+</form>
+
+{% endblock %}

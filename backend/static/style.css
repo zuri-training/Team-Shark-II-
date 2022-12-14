@@ -1,0 +1,807 @@
+
+
+ @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Inter:wght@400;700;800&family=Lexend+Deca:wght@200;400&family=Montserrat:wght@100;500&family=Poppins&display=swap'); 
+ *{
+     margin: 0;
+     padding: 0;
+ }
+ html, body {
+  height: 100%;
+  width: 100%;
+}
+
+ body{
+     font-family: 'Inter', sans-serif;
+     overflow-x: hidden;
+ }
+ :root{
+     --primary-color: #000072;
+     --primary-color-2: #2121A8;
+     --primary-color-3: #7575C7;
+     --secondary-color: #E1C202;
+     --secondary-color-2:#EEDC6E;
+     --secondary-color-3:#EFE6AE;
+     --tertiary-color: #A1BCC7;
+     --tertiary-color-2:#181818;
+     --tertiary-color-3:#858585;
+     --tertiary-color-4:#B8B8B8;
+     --background: #FFFFFF;
+     --logo-color: #D4B600;
+ }
+ nav{
+     display: flex;
+     flex-direction: row;
+     text-decoration: none;
+     overflow: hidden;
+     align-items: center;
+     justify-content: space-between;
+     margin: 0px 50px 0px 50px;
+     padding: 20px 0 20px 0;
+     background-color: var(--background);
+ }
+ nav a{
+     display: flex;
+     flex-direction: row;
+     font-family: 'Inter', sans-serif;
+     font-size: 22px;
+     color: var(--primary-color-2);
+ }
+ nav .logo{
+     font-family: 'Inter', sans-serif;
+     color: var(--logo-color);
+     font-size: 32px;
+ }
+ .sidebar{
+    display: none;
+ }
+ .menu_items{
+     display: flex;
+     flex-direction: row;
+     gap: 50px;
+ }
+ .menu_items a{
+     text-decoration: none;
+ }
+ /****************************/
+ .dropdown-content{
+     overflow: hidden;
+     background-color: #333;
+     font-family: Arial;
+   }
+   
+   /* Links inside the navbar */
+   .dropdown-content a {
+     float: left;
+     font-size: 16px;
+     color: white;
+     text-align: center;
+     padding: 14px 16px;
+     text-decoration: none;
+   }
+ .dropdown {
+     float: left;
+     overflow: hidden;
+   }
+   
+   /* Dropdown button */
+   .dropdown .dropbtn {
+     border: none;
+     outline: none;
+     color: var(--primary-color-2);
+     background-color: inherit;
+     font-family: inherit;
+     margin: 0; 
+   }
+   
+   /* Add a red background color to navbar links on hover */
+   .dropdown-content a:hover, .dropdown:hover .dropbtn {
+     background-color: red;
+   }
+   
+   /* Dropdown content (hidden by default) */
+   .dropdown-content {
+     display: none;
+     position: absolute;
+     background-color: #f9f9f9;
+     min-width: 160px;
+     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+     z-index: 1;
+   }
+   
+   /* Links inside the dropdown */
+   .dropdown-content a {
+     float: none;
+     color: var(--primary-color-2);
+     padding: 12px 16px;
+     text-decoration: none;
+     display: block;
+     text-align: left;
+   }
+   
+   /* Add a grey background color to dropdown links on hover */
+   .dropdown-content a:hover {
+     background-color: #ddd;
+   }
+   
+   /* Show the dropdown menu on hover */
+   .dropdown:hover .dropdown-content {
+     display: block;
+   }
+ /****************************/
+ 
+ /*SIGNUP AND LOGIN BUTTONS*/
+ .buttons{
+     display: flex;
+     gap: 30px;
+     cursor: pointer;
+     align-items: center;
+     justify-content: center;
+     padding: 10px;
+ }
+ 
+ .buttons>div{
+     width: 60px;
+     height: 30px;
+     border-radius: 10px;
+     border: 2px solid var(--primary-color-2);
+     padding: 15px 0 0 15px;
+     font-weight: 700;
+ }
+ .buttons>div :nth-child(1){
+     background: transparent;
+     color: var(--primary-color-2);
+     padding-left:0;
+ }
+ .buttons>div:nth-child(2){
+     background: linear-gradient(#6F6FE2 100%, #1A1AA5 60%, #000072 60%);
+     font-weight: 700;
+     border: none;
+ }
+ .buttons a {
+     text-decoration: none;
+     display: flex;
+     color: var(--background);
+     font-size: 16px;
+     width: 100%;
+     margin: auto;
+     border: none;
+     text-align: center;
+ }
+ .buttons .signup a{
+     margin-left: -3px;
+ }
+ .buttons .login a{
+     color: var(--background);
+ }
+ 
+ /*DROP DOWN MENU BUTTONS*/
+ .dropdown{
+     display: flex;
+     flex-direction: row;
+     text-decoration: none;
+ }
+ .dropdown i{
+     font-size: 12px;
+     padding-top: 8px;
+ }
+ .dropdown-content{
+     display: none;
+ }
+ /*HERO IMAGE AND INTRO TEXT*/
+ .landing{
+     margin-bottom: 20px;
+ }
+ .hero_img{
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     justify-content: center;
+     background: linear-gradient(to  right, #000072 20%, #6F6FE2 50%);
+ 
+ }
+ /*THE INTRO TEXT AND PARAGRAPH*/
+ .hero_img .hero_text{
+     width: 60%;
+     
+ }
+ .hero_img h1, p{
+     text-align: center;
+     
+ }
+ .hero_text{
+     align-items: center;
+     justify-content: center;
+     margin: 20px 140px 0 140px;
+ }
+ /*THE GET STARTED BUTTON(Background and centre aligning)*/
+ 
+ .hero_img .hero_text .start {
+     margin: auto;
+     cursor: pointer;
+     position: relative;
+     padding: 10px;
+     border-radius: 10px;
+     width: 250px;
+     height: 30px;
+     font-size: 2rem;
+     font-weight: 400;
+     
+     border: 1px solid #012880;
+     background-image: linear-gradient(-180deg, #6F6FE2 0%,  #6F6FE2 100%);
+     box-shadow: 0 1rem 1.25rem 0 rgba(22,75,195,0.50),
+                             0 -0.25rem 1.5rem rgba(33, 33, 168, 1) inset,
+                             0 0.75rem 0.5rem rgba(33, 33, 168, 1) inset,
+                             0 0.25rem 0.5rem 0 rgba(33, 33, 168, 1) inset;
+ }
+ 
+ .hero_img .hero_text .start a {
+     color: transparent;
+     background-image: linear-gradient(0deg,  #6F6FE2  0%, #6F6FE2 100%);
+     -webkit-background-clip: text;
+     background-clip: text;
+     filter: drop-shadow(0 2px 2px hsla(240, 67%, 66%, 1));
+ }
+ 
+ .hero_img .hero_text::before {
+     content: "";
+     display: block;
+     height: 0.25rem;
+     position: absolute;
+     top: 0.5rem;
+     left: 50%;
+     transform: translateX(-50%);
+     width: calc(100% - 7.5rem);
+     background: #fff;
+     border-radius: 100%;
+     
+     opacity: 0.7;
+     background-image: linear-gradient(-270deg, rgba(255,255,255,0.00) 0%, #FFFFFF 20%, #FFFFFF 80%, rgba(255,255,255,0.00) 100%);
+ }
+ 
+ .hero_img .hero_text::after {
+     content: "";
+     display: block;
+     height: 0.25rem;
+     position: absolute;
+     bottom: 0.75rem;
+     left: 50%;
+     transform: translateX(-50%);
+     width: calc(100% - 7.5rem);
+     background: #fff;
+     border-radius: 100%;
+     
+     filter: blur(1px);
+     opacity: 0.05;
+     background-image: linear-gradient(-270deg, rgba(255,255,255,0.00) 0%, #FFFFFF 20%, #FFFFFF 80%, rgba(255,255,255,0.00) 100%);
+ }
+ /*THE GET STARTED LINK(Placement of the link in the accomodating container)*/
+ .hero_img .hero_text .start a{
+   text-decoration: none;
+   color: var(--background);
+   font-size: 24px;
+   display: flex;
+   align-content: center; 
+ justify-content: center;
+  }
+  /*Sizing and color application for the hero text*/
+ .hero_img .hero_text h1{
+     font-size: 48px;
+     color: var(--background);
+     padding-bottom: 50px;
+     font-weight: 700;
+     Line-height: 58.09px;
+ }
+ /*The hero paragraph*/
+ .hero_img .hero_text p{
+     font-size: 32px;
+     color: var(--background);
+     margin-bottom: 70px;
+ }
+ /*TRENDING MOVIES SECTION*/
+ /*The parent container holding the four cards displaying trending movies*/
+ .trnding_movies_container{
+     gap: 20px;
+     display: flex;
+     flex-direction: row;
+     width: 80%;
+     margin: auto;
+     justify-content: center;
+     align-items: center;
+     padding: 50px;
+ }
+ .trending_movies .trnding_heading h2{
+   margin: 50px 0px -20px -1100px;
+    color: var(--primary-color-2);
+ }
+ /*The card styling i.e trending movies preview)*/
+ .card{
+     box-sizing: border-box;
+     border: 2px solid;
+     background: var(--tertiary-color-3);
+     flex-grow: 0;
+     flex-shrink: 0;
+ }
+ .card h5{
+     text-align: center;
+     padding-bottom: 10px;
+     color: var(--background);
+     font-size: 20px;
+ }
+ /*Trending movies poster image*/
+ .card img{
+     width: 261px;
+     height: 175px;
+     padding: 20px 20px 20px 20px;
+ }
+
+ /*The yellow background bearing text taking 70% of the container*//*****************************************************************/
+ .access{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+     width: 100%;
+     text-align: left;
+     background: var(--secondary-color-3);
+     height: 334px;
+ }
+ .accesss_text h2{
+     margin: 100px 50px 50px 120px;
+     text-align: left;
+     color: var(--primary-color-2);
+     font-weight: 700;
+     width: 70%;
+ }
+ .accesss_text p{
+     margin-left: 120px;
+     text-align: left;
+     font-weight: 700;
+     line-height: 24px;
+ }
+
+
+
+ /*Michael Jackson and pop corn image section*/
+ .access_img_mj{
+    width: 30%;
+}
+ .access_img_mj img{
+     padding-right: 120px;
+ }
+ /*The blog section*/
+ .blog_container{
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+     gap: 50px;
+     padding-bottom: 80px;
+ }
+ /*The blog card*/
+ .how_to_edit{
+     width: fit-content;
+     width: 364px;
+     height: 245px;
+ }
+ /*Part of the blog card bearing instructional text*/
+ h2{
+    margin: 50px auto 50px auto;
+    color: var(--primary-color-2);
+    text-align: center
+ }
+ .how_to_edit_illustration{
+     width: max-content;
+ }
+ .illustration_instructions{
+     flex-wrap: nowrap;
+     width: auto;
+     margin-top: 40px;
+     font-size: 20px;
+     font-weight: 700;
+     color: var(--primary-color-2);
+ }
+ /*Newsletter section*/
+ .newsletter h2{
+     margin-top: 100px;
+     color: var(--primary-color-2);
+     text-align: center;
+ }
+ .newsletter_subscription_form{
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     justify-content: center;
+ }
+ .email input[type="email"]{
+     width: 350px;
+     height: 30px;
+     padding-left: 20px;
+    color: var(--primary-color-3);
+ }
+ .subscribe{
+     box-sizing: border-box;
+     border: 1px solid;
+     width: 200px;
+     height: 34px;
+     font-size: 16px;
+     padding-top: 5px;
+     background: var(--secondary-color-3);
+    
+ }
+ .subscribe a{
+     font-weight: 700;
+     text-decoration: none;
+     margin-left: 50px;
+ }
+ footer{
+     margin-top: 50px;
+     padding-top: 10px;
+     background: var(--primary-color-3);
+ }
+ footer .logo{
+     font-family: 'Inter', sans-serif;
+     color: var(--logo-color);
+     margin: 20px 0px -10px 200px;
+     font-size: 24px;
+     font-weight: 700;
+ }
+ .column_container{
+     width: 70%;
+     display: flex;
+     flex-direction: row;
+     justify-content:space-between;
+     align-items: center;
+     margin: auto;
+ }
+ ul{
+     margin-top: 50px;
+ }
+ li{
+     list-style: none;
+ }
+ li:nth-child(1){
+     font-size: 20px;
+     font-weight: 700;
+ }
+ 
+ li a{
+     text-decoration: none;
+     color: var(--background);
+     font-weight: 400;
+     line-height: 30px;
+ }
+ .copyright_and_brand_icons{
+     margin-left: auto;
+     padding-bottom: 30px;
+     display: flex;
+     font-display: row;
+     gap: 50%;
+     justify-content: center;
+     align-items: center;
+ 
+ }
+ .copyright{
+     color: var(--background);
+ }
+ .copyright span{
+     font-size: 24px;
+ }
+ .brand_icons{
+     padding: 10px 10px 0 0;
+ }
+ .brand_icons i{
+     padding: 0px 10px 0 0;
+     color: var(--logo-color);
+     font-size: 24px;
+ }
+ 
+ /*MOBILE VIEW*/
+    @media screen and (min-width:320px) and (max-width:767px){
+        /* body{
+            overflow-x: hidden;
+            border: 1px solid;
+        } */
+    nav{
+        display: flex;
+        flex-direction: row;
+        text-decoration: none;
+        overflow: hidden;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0px 0px 0px 0px;
+        padding: -10px 0 -10px 0;
+        background-color: var(--background);
+    }
+    nav a{
+       
+        font-size: 18px;
+        color: var(--primary-color-2);
+    }
+    nav .logo{
+      padding-top: 10px;
+        font-size: 24px;
+    }
+ 
+    .menu_items{
+        visibility: hidden;
+    }
+    main{
+        margin-top: -50px;
+    }
+   
+     .sidebar{
+       display: block;
+    } 
+    .sidebar i{
+        color: var(--primary-color-2);
+        font-size: 20px;
+        margin-right: 20px;
+    }
+    .menu_items{
+        display: flex;
+        flex-direction: column;
+    }
+    .buttons{
+        display: none;
+    }
+    .hero_img{
+        display: flex;
+        flex-direction: column;
+    
+    }
+    .hero_img .hero_text .start {
+        margin-bottom: 50px;
+    }
+    .hero_img img{
+        width: 100%;
+      
+     }
+    .trnding_movies_container{
+        display: flex;
+        flex-direction: column;
+      
+    }
+    .trending_movies .trnding_heading h2{
+        margin: 20px 0px 20px 0px;
+         color: var(--primary-color-2);
+      }
+
+    .watch{
+        height: 334px;
+        display: flex;
+        flex-direction: column;
+        background: var(--secondary-color-3);
+       
+    }
+    .access{
+        width: 100%;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        /* gap: 150px; */
+    }
+    .accesss_text{
+        height: 300px;
+        margin-bottom: 100px;
+    }
+    .accesss_text h2{
+        margin: 50px auto 20px auto;
+        text-align: left;
+        color: var(--primary-color-2);
+        font-weight: 700;
+    }
+    .accesss_text p{
+        margin-left: 70px;
+        text-align: left;
+        font-weight: 700;
+        line-height: 24px;
+    }
+    /*Michael Jackson and pop corn image section*/
+    .access_img_mj img{
+        padding: auto;
+        height: max-content;
+        width: 100vw;
+        justify-content: center;
+    }
+    .blog{
+        width: 100%;
+    
+    }
+    
+    .blog_container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 300px;
+        padding-bottom: 250px;
+        gap: 100px;
+        
+    }
+    
+    h2{
+        margin: 300px auto -250px auto;
+        color: var(--primary-color-2);
+        text-align: center
+     }
+     .how_to_edit{
+        width: 364px;
+        height: 245px;
+    }
+    .how_to_edit img{
+        width: 300px;
+        height: auto;
+    }
+    .newsletter h2{
+        margin-top: -130px;
+    }
+ .newsletter_subscription_form{
+    margin-top: 280px;
+        display: flex;
+        flex-direction: column;
+       gap: 10px;
+    }
+    .email input[type="email"]{
+        width: 250px;
+        padding-left: 20px;
+    }
+    .subscribe{
+        width: 150px;
+
+       }
+
+       footer .logo{
+   
+        margin: 20px 0px 10px 150px;
+        font-size: 20px;
+   
+    }
+    .column_container :nth-child(1){
+        display: none;
+    }
+    .copyright_and_brand_icons{
+        display: flex;
+        gap: 20%;
+    
+    }
+  
+    .brand_icons{
+        padding: 10px 10px 0 0;
+    }
+    .brand_icons i{
+        padding: 0px 10px 0 0;
+        color: var(--logo-color);
+        font-size: 24px;
+    }
+
+} 
+
+
+/*TABLET*/
+    @media screen and (min-width:768px) and (max-width:1024px){
+        /* body{
+            border: 1px solid;
+        } */
+    nav a{
+        font-size: 20px;
+    }
+    nav .logo{
+        font-size: 28px;
+    }
+    .menu_items{
+        justify-content: space-between;
+        gap: 10px;
+    }
+    .sidebar{
+        display: none;
+    }
+
+    .hero_img{
+        display: flex;
+        flex-direction: column;
+    
+    }
+    .hero_img .hero_text .start {
+        margin-bottom: 50px;
+    }
+    .hero_preview_image_carousel{
+        width: 100%;
+    }
+    .hero_img img{
+        width: 100%;
+      
+     }
+    .trnding_movies_container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      
+      
+    }
+    .trending_movies .trnding_heading h2{
+        margin: 20px 0px 20px 0px;
+         color: var(--primary-color-2);
+      }
+      .access{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+  
+    }
+ 
+     .accesss_text{
+         width: 100%;
+     }
+     .accesss_text p{
+         margin-left: 50px;
+         text-align: left;
+         font-weight: 700;
+         line-height: 24px;
+     }
+     .accesss_text h2{
+        margin: 70px 0px 20px 50px;
+        text-align: left;
+        color: var(--primary-color-2);
+        font-weight: 700;
+    }
+     /*Michael Jackson and pop corn image section*/
+     .access_img_mj{
+        width: 100%;
+    }
+    .access_img_mj img{
+        width: 100%;
+        height: 334px;
+    }
+    .blog_container{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 130px;
+        margin-bottom: 50px;
+    }
+    .blog h2{
+        margin: 30px 0 -100px 0;
+    }
+    .how_to_edit{
+        width: 364px;
+        height: 245px;
+    }
+    .how_to_edit img{
+        width: 300px;
+        height: auto;
+    }
+    .newsletter{
+        margin-top: 150px;
+    }
+    .newsletter h2{
+        margin-top: -150px;
+    }
+    .newsletter_subscription_form{
+        display: flex;
+        flex-direction: row;
+        gap: 0;
+        margin-top: 120px;
+    }
+    .column_container:not(1){
+        display: block;
+    
+    }
+    footer .logo{
+   
+        margin: 20px 0px 10px 110px;
+        font-size: 20px;
+   
+    }
+    .copyright_and_brand_icons{
+        display: flex;
+        gap: 40%;
+    
+    }
+  
+    .brand_icons{
+        padding: 10px 10px 0 0;
+    }
+    .brand_icons i{
+        padding: 0px 10px 0 0;
+        color: var(--logo-color);
+        font-size: 24px;
+    }
+} 
