@@ -17,5 +17,10 @@ urlpatterns =[
     path('deleteupload/<int:pk>', views.DeleteUpload.as_view(), name ='deleteupload'),
     path('updateupload/<int:pk>', views.UpdateUpload.as_view(), name ='updateupload'),
     path('myvideos', views.Up.as_view(), name= 'myvideos'),
-
+    path('createpub/', views.PubCreate.as_view(), name= 'createpub'),
+    path('delete-pub/<int:pk>', views.DeletePub.as_view(), name ='deletepub'),
+    path('update-pub/<int:pk>', views.UpdatePub.as_view(), name ='updatepub'),
+    path('schoolnews/', views.Postlist.as_view(), name= 'publist'),
+    #path('publications/<slug>/', views.Postdetail.as_view(), name= 'details'),
+    path('schoolnews/<slug>/', views.post_detail, name= 'details'),
 ]

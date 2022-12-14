@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content   %}
+{% if request.user.is_superuser %}
+<h3>  Create Publication </h3>
+
+<form method ='POST' enctype ="multipart/form-data">
+    {% csrf_token %}
+
+  {{form.as_p}}
+  
+  <input type='submit', value ='Post Now'/>
+</form>
+{% else %}
+  <p style='color: red; font-size: 1em; text-align: center;padding: 3em;'> <b> Back off! You are not permitted to be here!! </b></p>
+{% endif %}
+{% endblock %}

@@ -7,6 +7,7 @@ from django.core.validators import FileExtensionValidator
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import AbstractUser
+from django.utils.text import slugify
 
 
 
@@ -206,3 +207,38 @@ class View(models.Model):
 
     def __str__(self) -> str:
         return f"{self.user} viewed: {self.real}"
+
+
+class Posts(models.Model):
+    title = models.CharField(max_length=100, null=True)
+    slug =models.SlugField(max_length=100)
+    author =  models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    description = models.TextField(max_length=1000)
+    post_date = models.DateTimeField(auto_now_add=True)
+    image = models.ImageField(upload_to='media/')
+    
+    class Meta:
+        ordering = ['post_date']
+        verbose_name = 'Publication'
+        verbose_name_plural = 'Publications'
+        
+    def __str__(self):
+        return self.title
+    
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(Posts, self).save(*args, **kwargs)
+        
+
+class PostComments(models.Model):
+    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    post = models.ForeignKey(Posts, on_delete=models.CASCADE, related_name='comments', null=True)
+    name =models.CharField(max_length=200, null=True, blank=True)
+    email =models.EmailField(max_length=100)
+    heading =models.CharField(max_length=200, null=True, blank=True)
+    created_on = models.DateTimeField(null =True, auto_now_add=True)
+    body =models.TextField()
+    active = models.BooleanField(default=False)
+    
+    def __str__(self):
+        return self.heading

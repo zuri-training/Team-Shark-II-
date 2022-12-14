@@ -38,5 +38,5 @@ class CustomUserAdmin(UserAdmin):
 
 admin.site.register([
     models.Reel, models.Comment, models.Like, models.Dislike, models.View,
-    models.Category, models.CustomUser
+    models.Category, models.CustomUser, models.Posts, models.PostComments
 ])

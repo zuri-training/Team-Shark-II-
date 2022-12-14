@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content  %}
+
+<div class ='board' style=' border: 1px solid black; color: black; background: white; margin-top: 0.7em; padding: 0.5em; margin-bottom: 0.7em'>
+   
+    <a style='margin: 1em; border: 1px solid black; padding: 0.5em; background: lightgreen; color: black' href ='{% url "index" %}'>  Go To Homepage </a>
+    <a  style='margin: 1em; border: 1px solid black; padding: 0.5em; background: lightgreen; color: black' href ='{% url "publist" %}'>  Go To All Publications </a>
+    <h3 style='padding: 0em; margin-top: 1em; '>{{pub.title}}|Posted by: {{pub.author}}</h3>
+     <p style='text-align: center;'><img style='width: 300px; height: 200px; text-align: center;' src='{{pub.image.url}}' /></p>
+     {{pub.description}}
+     <br>
+     {% if request.user.is_superuser %}
+<a href ='{% url "deletepub" pub.pk %}'>  Delete </a>
+<a href ='{% url "updatepub" pub.pk %}'>  Update </a>
+{% endif %}
+     <br>
+{% if request.user.is_authenticated %}
+     {% if new_comment %}
+     <div >
+       <p style='color: black;'>Your comment is awaiting moderation</p>
+     </div>
+     {% endif %}
+
+<h4> Leave A Comment </h4>
+<form method="post" style="margin-top: 1.3em;">
+    {% csrf_token %}
+    {{ comment_form.as_p }}
+    <button type="submit" >Submit</button>
+  </form>
+{% else %}
+<p> <a href='{% url "login" %}'>Login</a> or <a href='{% url "login" %}'>Register</a> to join the discussion </p>
+{% endif %}
+<h4 style='padding: 0em; margin-bottom:0em; '>ALL COMMENTS</h4>
+
+{% for comment in comments %}
+<ul style='list-style-type: none;'>
+  <li><b>Heading: {{comment.heading}}</b></li>
+
+<li>Name: {{comment.author.first_name}} | {{comment.created_on}}</li>
+<li>Email: {{comment.email}}</li>
+<li>Body: {{comment.body}}</li>
+</ul>
+{% endfor %}
+
+    </div>
+{% endblock  %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3> Latest School News</h3>
+<div style='display: grid; grid-gap: 0.2em; grid-template-columns: repeat(auto-fill, minmax(250px, 2fr));'>
+{% for post in posts %}
+<ul style='list-style-type: none;' >
+<li><img style='width: 95%; height: 14em; text-align: center;' src='{{post.image.url}}' /></li>
+<li> <a  href='{% url "details" post.slug  %}'> {{post.title}}</a></li>
+</ul>
+{% endfor %}
+</div>
+{% endblock %}

@@ -917,26 +917,17 @@
 
     <section class="blog">
         <h2>Blog</h2>
-        <div class="blog_container">
-            <div class="how_to_edit">
-                <div class="how_to_edit_illustration">
-                    <img src="../Asset Page/assets/images/image 6 (2).png" alt="">
-                </div>
-                <div class="illustration_instructions">
-                    <p> How to shoot and edit a short film on your phone </p>
-                </div>
-            </div>
+        <h3> Latest School News</h3>
+<div style='display: grid; grid-gap: 0.4em; grid-template-columns: repeat(auto-fill, minmax(250px, 2fr));'>
+{% for post in latestnews %}
+<ul style='list-style-type: none;' >
+<li><img style='width: 95%; height: 14em; text-align: center;' src='{{post.image.url}}' /></li>
+<li> <a  href='{% url "details" post.slug  %}'> {{post.title}}</a></li>
+</ul>
+{% endfor %}
+</div>
 
-            <div class="how_to_edit">
-                <div class="how_to_edit_illustration">
-                    <img src="../Asset Page/assets/images/image 7.png" alt="">
-                </div>
-                <div class="illustration_instructions">
-                    <p> Sally and her violin:
-                         A short film </p><p>of Sally and her passion for <p> instruments.</p>
-                </div>
-            </div>
-        </div>
+           
 
         <div class="newsletter"> 
                 <h2>Newsletter</h2>

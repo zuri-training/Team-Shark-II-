@@ -1,5 +1,5 @@
 from django.views.generic import ListView
-from .models import Reel, Category
+from .models import Reel, Category, PostComments, Posts
 from django.shortcuts import get_object_or_404, redirect,render
 from django.contrib.auth import login,logout,authenticate
 from django.urls import reverse_lazy
@@ -47,6 +47,8 @@ class Index(ListView):
     def get_context_data(self,  **kwargs):
         context = super().get_context_data(**kwargs)
         context['category'] = Category.objects.all()
+        context['latestnews'] = Posts.objects.all()
+
 
         return context
 
@@ -189,7 +191,16 @@ class UpdateUpload(LoginRequiredMixin,  UpdateView):
         return reverse_lazy('video_detail', kwargs={'pk': self.object.pk})
 
 
+class Postlist(ListView):
+    model = Posts
+    template_name = 'pubs.html'
+    context_object_name = 'posts'
 
+    def get_context_data(self,  **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['logos'] = Logo.objects.all()
+        context['publications'] = Posts.objects.all()
+        return context
 
 
 class DeleteUpload(LoginRequiredMixin,  DeleteView):
@@ -199,3 +210,65 @@ class DeleteUpload(LoginRequiredMixin,  DeleteView):
 
     def get_success_url(self):
         return reverse_lazy('index')
+
+
+class PubCreate(LoginRequiredMixin,  CreateView):
+    model = Posts
+    template_name = 'createpub.html'
+    fields = ['title', 'description', 'image']
+    redirect_authenticated_user = True
+
+    def get_success_url(self):
+        return reverse_lazy('publications')
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super(PubCreate, self).form_valid(form)
+
+
+class UpdatePub(LoginRequiredMixin,  UpdateView):
+    model = Posts
+    fields = ['title', 'description', 'image']
+    template_name = 'createpub.html'
+    redirect_authenticated_user = True
+
+    def get_success_url(self):
+        return reverse_lazy('details', kwargs={'slug': self.object.slug})
+
+
+class DeletePub(LoginRequiredMixin,  DeleteView):
+    model = Posts
+    template_name = 'deletepub.html'
+    redirect_authenticated_user = True
+
+    def get_success_url(self):
+        return reverse_lazy('publications')
+
+
+def post_detail(request, slug):
+    # similar posts starts here
+    pub = Posts.objects.get(slug=slug)
+    # comment starts here
+    post = get_object_or_404(Posts, slug=slug)
+    comments = pub.comments.filter(active=True).order_by('-created_on')
+    new_comment = None
+    if request.method == 'POST':
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            comment_form.instance.author = request.user
+            # Create Comment object but don't save to database yet
+            new_comment = comment_form.save(commit=False)
+            # Assign the current post to the comment
+            new_comment.post = post
+            # Save the comment to the database
+            new_comment.save()
+    else:
+        comment_form = CommentForm()
+
+    context = {
+        'pub': pub,
+        'comments': comments,
+        'new_comment': new_comment,
+        'comment_form': comment_form,
+    }
+    return render(request, 'details.html', context)
