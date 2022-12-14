@@ -234,7 +234,7 @@ footer {
         <div class="container">
             <section>
                 <ul>
-                    <li><a href="../Dashboard page/dash.html"><i class="fas fa-home"></i>
+                    <li><a href="{% url 'index' %}"><i class="fas fa-home"></i>
                             <span class="nav-item">Home</span></i>
                         </a>
                     </li>
@@ -242,7 +242,7 @@ footer {
                             <span class="nav-item">Watch later</span>
                         </a>
                     </li>
-                    <li><a href="../upload page/up.html"><i class="fas fa-wallet"></i>
+                    <li><a href="{% url 'myvideos' %}"><i class="fas fa-wallet"></i>
                             <span class="nav-item">My Uploads</span>
                         </a>
                     </li>
@@ -253,7 +253,7 @@ footer {
                         </a>
                     </li>
 
-                    <li><a href="../Landing page/index.html" class="logout"><i class="fas fa-sign-out-alt"></i>
+                    <li><a href="{% url 'logout' %}" class="logout"><i class="fas fa-sign-out-alt"></i>
                             <span class="nav-item">Logout</span>
                         </a>
                     </li>
@@ -268,17 +268,47 @@ footer {
             <h5>{{pub.title}}</h5>
             <h5>{{pub.description}}</h5>
 
-            {% if request.user = pub.uploader %}
+            {% if request.user == pub.uploader %}
             <ul>
               <li>
                 <a href="{% url 'deleteupload' pub.pk %}">Delete</a>
               </li>
               <li>
-                <a href="{% url 'updateupload' pub.pk %}">Delete</a>
+                <a href="{% url 'updateupload' pub.pk %}">Update</a>
+
 
               </li>
             </ul>
             {% endif %}
+
+            {% if request.user.is_authenticated %}
+     {% if new_comment %}
+     <div >
+       <p style='color: black;'>Your comment is awaiting moderation</p>
+     </div>
+     {% endif %}
+
+<h4> Leave A Comment </h4>
+<form method="post" style="margin-top: 1.3em;">
+    {% csrf_token %}
+    {{ comment_form.as_p }}
+    <button type="submit" >Submit</button>
+  </form>
+{% else %}
+<p> <a href='{% url "login" %}'>Login</a> or <a href='{% url "login" %}'>Register</a> to join the discussion </p>
+{% endif %}
+<h4 style='padding: 0em; margin-bottom:0em; '>ALL COMMENTS</h4>
+
+{% for comment in comments %}
+<ul style='list-style-type: none;'>
+
+<li>Name: {{comment.user}} | {{comment.date}}</li>
+<li>Email: {{comment.user.email}}</li>
+<li>Body: {{comment.comment}}</li>
+</ul>
+{% endfor %}
+
+    </div>
 
             <h4>Related Videos</h4> <img class="more" src="../Asset Page/assets/images/sidevids.png" alt="Related Videos"
                 width="150px" height="450px">

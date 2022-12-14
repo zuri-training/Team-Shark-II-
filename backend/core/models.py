@@ -109,7 +109,7 @@ class Comment(models.Model):
         help_text="date comment was made"
     )
 
-    active = models.BooleanField(default=False)
+    active = models.BooleanField(default=True)
 
 
     class Meta:
