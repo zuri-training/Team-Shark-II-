@@ -1,0 +1,101 @@
+{% extends "parent.html" %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Greenhood Landing page</title>
+</head>
+<body>
+    <div class="container">
+        <!--Nav bar open-->
+        <h2>Recent Short Films</h2>
+        <!---Nav bar close-->
+        <!--Section page-->
+        {% block body %}
+    <!-- {% for video in most_recent_videos %}
+        <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">{{ video.title }}</h1>
+          <p class="lead">{{ video.description }}</p>
+          <p style="font-size: 7px; color:gray;">Uploaded by {{ video.user }} on {{ video.datetime }} </p>
+          <p style="text-align: right"><a href='/video/{{ video.id }}'>Watch Video</a></p>
+        </div>
+        </div>
+    {% endfor %} -->
+    {% for video in most_recent_videos %}
+    <section style=
+    "display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 30px;">
+            <div class="card" style="width: 100%;
+            max-width: 1000px;
+            background-color: #7575C7;
+            height: 300px;
+            min-height: 150px;
+            object-fit: cover;
+            border-radius: 10px;">
+                <h5 style="color: #E1C202; margin: auto; padding: 30px 20px 25px 20px; font-size: 2rem;">{{ video.title }}</h5>
+                <p style="color: #ffffff; margin: auto; padding: 30px 20px 30px 20px;">Description: {{ video.description }}</p>
+                <p style=" color: #ffffff">Uploaded by {{ video.user }} on {{ video.datetime }} </p>
+                <p style="text-align: right; color: #E1C202; margin: auto; padding: 30px 100px 30px 20px;"><a href='/video/{{ video.id }}' style="font-size: 18px;">Watch Video</a></p>
+            </div>
+    </section>
+    {% endfor %}
+    <!---Footer page-->
+    <footer>
+        <div class="logo">GREENHOOD</div>
+        <div class="column_container">
+          <div class="column">
+            <ul>
+              <li><a href="">About Us</a></li>
+              <li><a href="">Vision</a></li>
+              <li><a href="">Careers</a></li>
+              <li><a href="">Terms of Service</a></li>
+              <li><a href="">Donate</a></li>
+            </ul>
+          </div>
+          <div class="column">
+            <ul>
+              <li><a href="">Discover</a></li>
+              <li><a href="">Home</a></li>
+              <li><a href="">Videos</a></li>
+              <li><a href="">Content Creators</a></li>
+              <li><a href="">Advanced Search</a></li>
+            </ul>
+          </div>
+          <div class="column">
+            <ul>
+              <li><a href="">Help</a></li>
+              <li><a href="">Help Centre</a></li>
+              <li><a href="">Report a problem</a></li>
+              <li><a href="">Suggesting Edits</a></li>
+              <li><a href="">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="copyright_and_brand_icons">
+          <div class="copyright">
+            <span>&copy</span> 2022, Col-Films
+          </div>
+          <div class="brand_icons">
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-square-twitter"></i></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></i></a>
+          </div>
+        </div>
+      </footer>
+      {% endblock %}
+</body>
+</html>

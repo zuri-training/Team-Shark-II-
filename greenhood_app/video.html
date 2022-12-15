@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% extends "parent.html" %}
+
+<head><title>Greenhood | Video</title></head>
+
+
+{% block body %}
+<div style="max-width: 80vh; margin:auto; padding: 20px;">
+<h2>{{ video.title }}</h2>
+
+<video width="700" height="320" controls>
+    <source src="{{ video.path }}" type="video/mp4">
+  Your browser does not support the video tag.
+  </video>
+<p>{{ video.description }}</p>
+<br><br>
+<h3>Comments</h3>
+
+{% if form %}
+<form action="/comment" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <input type='hidden' name='video' value='{{ video.id }}'>
+    <br>
+    <button type="submit" style="width: 120px;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color:#E1C202;
+    border: none;
+    cursor: pointer;
+    background-color: #2121A8;
+    padding: 10px 5px 10px 5px;">Post Comment!</button>
+</form>
+{% endif %}
+
+{% for comment in comments %}
+<p>
+{{ comment.user }} posted on: {{ comment.datetime }} <br>
+{{ comment.text }}
+</p>
+{% endfor %}
+</div>
+
+{% endblock %}
+</body>
+</html>

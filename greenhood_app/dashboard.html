@@ -1,0 +1,171 @@
+{% extends "parent.html" %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css.css">
+    <link rel="stylesheet" href="{% static 'greenhood_app/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    {% block body %}
+    <main>
+        <section class="landing">
+        <div class="hero_img">
+            <div class="hero_text">
+                <h1>The ultimate short films platform </h1>
+                <p>Access unlimited short movies anytime anywhere. Learn how to make your own short films and watch
+                    other students’ videos  </p>
+                    <div class="start">
+                        <a href="../Sign up page/sign.html" >Get Started</a>
+                    </div>
+            </div>
+            <div class="hero_preview_image_carousel">
+                <img src="../Asset Page/assets/images/movie 1 1.png " alt="">
+            </div>
+        </div>
+    </section>
+
+    <section class="trending_movies">
+        <div class="trnding_heading">
+        <h2>Trending Movies</h2>
+        <div class="container_trending">
+        <div class="trnding_movies_container">
+            <div class="card">
+                <img src="../Asset Page/assets/images/image 3.png" alt="">
+                <h5>ASE</h5>
+            </div>
+            <div class="card">
+                <img src="../Asset Page/assets/images/image 4.png" alt="">
+                <h5>Black Girl Magic</h5>
+            </div>
+            <div class="card">
+                <img src="../Asset Page/assets/images/image 4.png" alt="">
+                <h5>Afrikaner</h5>
+            </div>
+            <div class="card">
+                <img src="../Asset Page/assets/images/image 5.png" alt="">
+                <h5>International
+                     Passport </h5>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <section class="watch">
+        <div class="access">
+            <div class="accesss_text">
+                <h2>Watch anywhere, anytime.</h2>
+                <p>You can watch on your smartphone,</p>
+                <p>tablet, Laptop, Xbox players,</p>
+                <p> desktop, Apple TV and more.</p>
+            </div>
+            <div class="access_img_mj">
+                <img src="../Asset Page/assets/images/movie 2.png" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section class="blog">
+        <h2>Blog</h2>
+        <div class="blog_container">
+            <div class="how_to_edit">
+                <div class="how_to_edit_illustration">
+                    <img src="../Asset Page/assets/images/image 6 (2).png" alt="">
+                </div>
+                <div class="illustration_instructions">
+                    <p> How to shoot and edit a short film on your phone </p>
+                </div>
+            </div>
+
+            <div class="how_to_edit">
+                <div class="how_to_edit_illustration">
+                    <img src="../Asset Page/assets/images/image 7.png" alt="">
+                </div>
+                <div class="illustration_instructions">
+                    <p> Sally and her violin:
+                         A short film </p><p>of Sally and her passion for <p> instruments.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="newsletter"> 
+                <h2>Newsletter</h2>
+            <div class="newsletter_subscription_form">
+                <div class="email">
+                    <form action="">
+                        <input type="email" name="" id="email" placeholder="name@example.com">
+                    </form>
+                </div>
+            <div class="subscribe">
+                <a href="newsletter.html">Subscribe</a>
+            </div>
+        </div>
+    </div>
+    </section>
+    </main>
+    <footer>
+        <div class="logo">GREENHOOD</div>
+        <div class="column_container">
+        <div class="column">
+            <ul>
+                <li><a href="">About Us</a></li>
+                <li><a href="">Vision</a></li>
+                <li><a href="">Careers</a></li>
+                <li><a href="">Terms of Service</a></li>
+                <li><a href="">Donate</a></li>
+            </ul>
+        </div>
+        <div class="column">
+            <ul>
+                <li><a href="">Discover</a></li>
+                <li><a href="">Home</a></li>
+                <li><a href="">Videos</a></li>
+                <li><a href="">Content Creators</a></li>
+                <li><a href="">Advanced Search</a></li>
+            </ul>
+        </div>
+        <div class="column">
+            <ul>
+                <li><a href="">Help</a></li>
+                <li><a href="">Help Centre</a></li>
+                <li><a href="">Report a problem</a></li>
+                <li><a href="">Suggesting Edits</a></li>
+                <li><a href="">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="copyright_and_brand_icons">
+        <div class="copyright">
+           <span>&copy</span> 2022, Col-Films 
+        </div>
+        <div class="brand_icons">
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-square-twitter"></i></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></i></a>
+        </div>
+    </div>
+    </footer>
+    {% endblock %}
+<!-- 
+    <script>
+        window.onload = function () {
+          var span = document.createElement('span');
+        
+          span.className = 'fa';
+          span.style.display = 'none';
+          document.body.insertBefore(span, document.body.firstChild);
+          
+          alert(window.getComputedStyle(span, null).getPropertyValue('font-family'));
+            
+          document.body.removeChild(span);
+        };
+        </script> -->
+</body>
+</html>

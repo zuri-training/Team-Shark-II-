@@ -1,0 +1,44 @@
+{% load static %}
+<head>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<!-- <link rel="stylesheet" href="{% static 'css/dash.css' %}"> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<nav>   
+    <div class="logo">GREENHOOD</div>
+    <div class="menu_items">
+        <a href="/">Home</a>
+            <a  href="/new_video" >Upload</a>
+          <div class="dropdown">
+            <a  href="/" class="dropbtn main">Dashboard
+                <i class="fa fa-angle-down"></i>
+            </a>
+                <div class="dropdown-content">
+                    <a href="/">Watch Videos</a>
+                    <a href="/new_video">Make Uploads</a>
+                    <!-- <a href="../Play video page/vid.html">Liked Videos</a> -->
+                </div>
+          </div>
+    </div>
+    <div class="buttons">
+        {% if user.is_authenticated %}
+        <div class="logout" >
+            <a href="/logout">LogOut</a> 
+        </div>
+        {% else %}
+        <div class="signup">
+           <a href="/signup">SignUp</a> 
+        </div>
+        <div class="login">
+            <a href="/login">Log In</a> 
+        </div>
+        {% endif %}
+    </div>
+    <div class="sidebar">
+        <i class="fa-solid fa-bars 2x"></i>
+    </div>
+</nav>
+{% block body %}
+{% endblock %}
