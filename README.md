@@ -44,9 +44,9 @@ Show usage example to users
 
 Allow user save data and come back to download
 
-### PROJECT LINK : https://docs.google.com/document/d/10f5aldk-XHq55-_R9GDTqCYfLh_jHesnLFA_H-Pyp9g/edit?usp=sharing
+#### Final Documentation : https://docs.google.com/document/d/1d2xE_NP4NekJI5Ey3wg37WS3kqqrK4a2Xd2ADfjisLA/edit?usp=sharing
 
-### Figma link: https://www.figma.com/file/0ZQl7ExjrtJs0LhVSYD62S/Col-film-UI-Design?fuid=1140781842899945788
+#### Final Design: https://www.figma.com/file/0ZQl7ExjrtJs0LhVSYD62S/TEAM-SHARK2_Greenhood-UI-Design?node-id=21%3A4&t=xrHTHBeDzeVO3dzG-0
 
 <details><summary>Designed and Developed by:</summary>
 
@@ -77,3 +77,15 @@ Allow user save data and come back to download
 - [Rebecca Benson](Front-End Developer)
 
 </details>
+
+## Tech Stack
+
+*Client*: HTML • CSS • JavaScript
+
+*Server*: Python • Django
+
+*Design*: Figma
+
+## Useful information 
+
+Other Contributions are encouraged into this repository.
