@@ -62,7 +62,7 @@ Allow user save data and come back to download
 
 - [Lemmy Obah](Product Designer)
 
-- [Emmanuel Cobbina](Back-End Developer)
+- [Emmanuel Cobbina](Full-Stack Developer)
 
 - [Priscillia Archibong](Back-End Developer)
 
