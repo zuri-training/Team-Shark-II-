@@ -1,0 +1,14 @@
+
+{% block content %}
+{% if request.user.is_superuser %}
+<form method='POST'>
+{% csrf_token %}
+<p> Are you sure you want to delete this task? '{{pub}}' <p>
+    <input type= 'submit' value='Delete'/> 
+<a href = "{% url 'index' %}"> Cancel  </a>
+</form>
+
+{% else  %}
+<p> Sorry, you are not the author of this post </p>
+{% endif %}
+{% endblock  %}

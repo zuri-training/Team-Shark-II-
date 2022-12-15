@@ -15,7 +15,7 @@ class CustomUser(AbstractUser):
     full_name = models.CharField(max_length=200, null=True)
     is_student = models.BooleanField(default=1)
 
- 
+
     def __str__(self):
         return '{} {}'.format(self.username, self.first_name, self.last_name)
 
@@ -95,20 +95,18 @@ verbose_name=_("video category"), null=True,
 
 class Comment(models.Model):
 
-    user = models.ForeignKey(
-        settings.AUTH_USER_MODEL, verbose_name=_("commented by"),
-        on_delete=models.CASCADE, related_name="commenter"
+    user = models.ForeignKey(CustomUser, verbose_name=_("commented by"),
+        on_delete=models.CASCADE, null=True,  related_name="commenter"
     )
     comment = models.TextField(
-        help_text=_("comment on reels")
-    )
+        )
     real = models.ForeignKey(
         Reel, verbose_name=_("comment on"), on_delete=models.CASCADE,
-        help_text=_("reel commented on"), related_name="commented"
+         null=True, related_name="commented"
     )
     date = models.DateTimeField(
-        _("date commented"), default=timezone.now,
-        help_text="date comment was made"
+        _("date commented"), default=timezone.now
+
     )
 
     active = models.BooleanField(default=True)
@@ -216,19 +214,19 @@ class Posts(models.Model):
     description = models.TextField(max_length=1000)
     post_date = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(upload_to='media/')
-    
+
     class Meta:
         ordering = ['post_date']
         verbose_name = 'Publication'
         verbose_name_plural = 'Publications'
-        
+
     def __str__(self):
         return self.title
-    
+
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super(Posts, self).save(*args, **kwargs)
-        
+
 
 class PostComments(models.Model):
     author = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
@@ -239,6 +237,6 @@ class PostComments(models.Model):
     created_on = models.DateTimeField(null =True, auto_now_add=True)
     body =models.TextField()
     active = models.BooleanField(default=False)
-    
+
     def __str__(self):
         return self.heading
