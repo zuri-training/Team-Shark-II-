@@ -48,30 +48,32 @@ Allow user save data and come back to download
 
 ### Figma link: https://www.figma.com/file/0ZQl7ExjrtJs0LhVSYD62S/Col-film-UI-Design?fuid=1140781842899945788
 
-# Designed and Created by :
+<details><summary>Designed and Developed by:</summary>
 
-1. Omatshola Onwumah = Team Leader
+- [Omatshola Onwumah](Team Leader)
 
-2. Julie Lasu
+- [Julie Lasu](Product Designer)
 
-3. Emmanuel Cobbina
+- [Bethel Ugwu](Product Designer)
 
-4. Samuel Sosina
+- [Francesca Isek](Product Designer)
 
-5. Priscillia Archibong
+- [Martins Damisa](Product Designer)
 
-6. Rebecca Benson
+- [Lemmy Obah](Product Designer)
 
-7.  Esther Oyadiji
+- [Emmanuel Cobbina](Back-End Developer)
 
-8. Ivy Watitwa
+- [Priscillia Archibong](Back-End Developer)
 
-9. Bethel Ugwu
+- [Gospel Ferdinand](Back-End Developer)
 
-10. Francesca Isek
+- [Esther Oyadiji](Front-End Developer)
 
-11. Martins Damisa
+- [Ivy Watitwa](Front-End Developer)
 
-12. Lemmy Obah
+- [Samuel Sosina](Front-End Developer)
 
-13. Gospel Ferdinand
+- [Rebecca Benson](Front-End Developer)
+
+</details>
