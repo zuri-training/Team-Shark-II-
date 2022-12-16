@@ -44,34 +44,50 @@ Show usage example to users
 
 Allow user save data and come back to download
 
-### PROJECT LINK : https://docs.google.com/document/d/10f5aldk-XHq55-_R9GDTqCYfLh_jHesnLFA_H-Pyp9g/edit?usp=sharing
+#### Final Documentation : https://docs.google.com/document/d/1d2xE_NP4NekJI5Ey3wg37WS3kqqrK4a2Xd2ADfjisLA/edit?usp=sharing
 
-### Figma link: https://www.figma.com/file/0ZQl7ExjrtJs0LhVSYD62S/Col-film-UI-Design?fuid=1140781842899945788
+#### Final Design: https://www.figma.com/file/0ZQl7ExjrtJs0LhVSYD62S/TEAM-SHARK2_Greenhood-UI-Design?node-id=21%3A4&t=xrHTHBeDzeVO3dzG-0
 
-# Designed and Created by :
+#### Project Hosting link: http://greenhood.pythonanywhere.com/
 
-1. Omatshola Onwumah = Team Leader
+#### Other Testing link: http://gospel367.pythonanywhere.com/
 
-2. Julie Lasu
+<details><summary>Designed and Developed by:</summary>
 
-3. Emmanuel Cobbina
+- [Omatshola Onwumah](Team Leader)
 
-4. Samuel Sosina
+- [Julie Lasu](Product Designer)
 
-5. Priscillia Archibong
+- [Bethel Ugwu](Product Designer)
 
-6. Rebecca Benson
+- [Francesca Isek](Product Designer)
 
-7.  Esther Oyadiji
+- [Martins Damisa](Product Designer)
 
-8. Ivy Watitwa
+- [Lemmy Obah](Product Designer)
 
-9. Bethel Ugwu
+- [Emmanuel Cobbina](Full-Stack Developer)
 
-10. Francesca Isek
+- [Priscillia Archibong](Back-End Developer)
 
-11. Martins Damisa
+- [Gospel Ferdinand](Back-End Developer)
 
-12. Lemmy Obah
+- [Esther Oyadiji](Front-End Developer)
 
-13. Gospel Ferdinand
+- [Ivy Watitwa](Front-End Developer)
+
+- [Samuel Sosina](Front-End Developer)
+
+</details>
+
+## Tech Stack
+
+*Client*: HTML • CSS • JavaScript
+
+*Server*: Python • Django
+
+*Design*: Figma
+
+## Useful information 
+
+Other Contributions are encouraged into this repository.
