@@ -74,8 +74,6 @@ Allow user save data and come back to download
 
 - [Samuel Sosina](Front-End Developer)
 
-- [Rebecca Benson](Front-End Developer)
-
 </details>
 
 ## Tech Stack
