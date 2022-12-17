@@ -33,8 +33,8 @@ class PasswordResetConfirm(PasswordResetConfirmView):
 
 class PasswordResetDone(PasswordResetDoneView):
     template_name = 'password_reset_done.html'
-    
-    
+
+
 class PasswordResetComplete(PasswordResetDoneView):
     template_name = 'password_reset_complete.html'
 
@@ -43,7 +43,7 @@ class Index(ListView):
     model = Reel
     template_name ='index.html'
     context_object_name = 'reels'
-    
+
     def get_context_data(self,  **kwargs):
         context = super().get_context_data(**kwargs)
         context['category'] = Category.objects.all()
@@ -53,28 +53,29 @@ class Index(ListView):
         return context
 
 
+
 class Register(FormView):
     form_class = RegisterForm
     template_name = 'sign.html'
     redirect_authenticated_user = True
-    
-    
+
+
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             return redirect('index')
         else:
             form = self.form_class()
             return render(request, self.template_name, {'form':form})
-    
+
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
         if form.is_valid():
-            
+
             user =form.save(commit=False)
             user.set_password(form.cleaned_data["password"])
-            user.is_active =False
+            user.is_active = True
             user.save()
-            
+
             current_site = get_current_site(request)
             subject ='Activate Your Account'
             message =render_to_string('account_activation_email.html', {
@@ -89,9 +90,20 @@ class Register(FormView):
         return render(request, self.template_name, {'form':form})
 
 
-    
-    
-    
+class Dash(ListView):
+    model = Reel
+    template_name ='dashboard.html'
+    context_object_name = 'reels'
+
+    def get_context_data(self,  **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['category'] = Category.objects.all()
+        context['latestnews'] = Posts.objects.all()
+
+
+        return context
+
+
 class ActivateAccount(View):
     def get(self, request, uidb64, token, *args, **kwargs):
         try:
@@ -99,7 +111,7 @@ class ActivateAccount(View):
             user =CustomUser.objects.get(pk=uid)
         except (TypeError, ValueError, OverflowError, CustomUser.DoesNotExist):
             user =None
-            
+
         if user is not None and account_activation_token.check_token(user, token):
             user.is_active =True
             user.save()
@@ -108,7 +120,7 @@ class ActivateAccount(View):
         else:
             messages.warning(request, ('Validation of account fatally failed'))
             return redirect('login')
-            
+
 
 
 class LoginView(LoginView):
@@ -135,13 +147,16 @@ def video_detail(request, pk):
     if request.method == 'POST':
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
-            comment_form.instance.author =request.user
+            comment_form.instance.user =request.user
+            comment_form.instance.real = post
             # Create Comment object but don't save to database yet
             new_comment = comment_form.save(commit=False)
             # Assign the current post to the comment
             new_comment.post = post
             # Save the comment to the database
             new_comment.save()
+            comment_form = CommentForm()
+
     else:
         comment_form = CommentForm()
 
@@ -155,29 +170,31 @@ def video_detail(request, pk):
     return render(request, 'vid.html', context)
 
 
-class Up(ListView):
+
+class Up(LoginRequiredMixin, ListView):
     model = Reel
     template_name ='up.html'
     context_object_name = 'reels'
-    
+
     def get_context_data(self,  **kwargs):
         context = super().get_context_data(**kwargs)
         context['myvid'] = Reel.objects.filter(uploader=self.request.user)
 
         return context
 
+
 class Upload(LoginRequiredMixin,  CreateView):
     model = Reel
     template_name = 'upload.html'
-    fields = ['uploader', 'title','category', 'description', 'cover_thumbnail', 'video']
-    
+    fields = ['title','category', 'description', 'cover_thumbnail', 'video']
+
     redirect_authenticated_user = True
 
     def get_success_url(self):
         return reverse_lazy('index')
 
     def form_valid(self, form):
-        form.instance.author = self.request.user
+        form.instance.uploader = self.request.user
         return super(Upload, self).form_valid(form)
 
 

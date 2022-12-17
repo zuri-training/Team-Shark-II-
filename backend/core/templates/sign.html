@@ -15,19 +15,19 @@
 body {
     font-family: sans-serif;
   }
-  
+
   .sign-in-page {
     width: 90%;
   }
-  
+
   .header-text h1 {
     color: rgba(117, 117, 199, 1);
   }
-  
+
   .forgot-password {
     text-decoration: none;
   }
-  
+
   .submit-button {
     width: 100%;
     background-color: rgba(117, 117, 199, 1);
@@ -40,34 +40,34 @@ body {
   .google-button svg {
     width: 20px;
   }
-  
+
   .start {
     left: 10px;
   }
-  
+
   .sign-up-link {
     text-decoration: none;
   }
-  
-  
+
+
   @media only screen and (min-width: 768px) {
     .res {
       max-width: 80%;
     }
   }
-  
+
   @media only screen and (min-width: 992px) {
     .res {
       max-width: 60%;
     }
   }
-  
+
   @media only screen and (min-width: 1200px) {
     .res {
       max-width: 50%;
     }
   }
-  
+
 
 </style>
 
@@ -75,7 +75,7 @@ body {
 <script src="sign.js"></script>
 <body>
     <div class="sign-in-page mt-4 mx-auto">
-        
+
         <div class="header-text mt-3 text-center">
             <h1>Welcome To Greenhood</h1>
         </div>
@@ -103,7 +103,7 @@ body {
                 </div>
                 <div class="mb-3">
                     <div class="d-flex justify-content-between">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>    
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
                     </div>
                     <input type="password" class="form-control" id="passwrd" aria-describedby="emailHelp", name="password">
                 </div>
@@ -120,7 +120,7 @@ body {
                     <and class="text-center">
                         Signing up for a Greenhood account means you agree to the <span style="color: orange">Privacy Policy </span> and <span style="color: orange"> Terms of service.</span>
                         <span>
-                           <p> Have an account?<a class="sign-up-link" href="{% url 'register' %}">Sign in</a></p>
+                           <p> Have an account?<a class="sign-up-link" href="{% url 'login' %}">Sign in</a></p>
                         </span>
 
                     </p>

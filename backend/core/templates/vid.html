@@ -144,7 +144,7 @@ h2{color: #D4B600;}
 h4{ padding-left:70px; font-size: 25px; font-weight: lighter;}
 
 .more{position: absolute;
-right: 25%; 
+right: 25%;
 top: 20%;}
 
 .play:hover { font-size: 50px; border: #2121A8 solid 3px; cursor: pointer;}
@@ -158,14 +158,14 @@ footer {
     height: 55vh;
     overflow: fixed;
   }
-  
+
   footer .logo {
     font-family: "Inter", sans-serif;
     color: var(--logo-color);
     font-size: 20px;
     font-weight: 700;
   }
-  
+
   .column_container {
     width: 100%;
     display: flex;
@@ -194,7 +194,7 @@ footer {
     color: var(--tertiary-color-2);
     font-weight: 400;
   }
-  
+
   .copyright {
     color: orange;
   }
@@ -232,7 +232,7 @@ footer {
     <main>
         <!--Section page-->
         <div class="container">
-            <section>
+            <section style='margin-right: 3em;'>
                 <ul>
                     <li><a href="{% url 'index' %}"><i class="fas fa-home"></i>
                             <span class="nav-item">Home</span></i>
@@ -247,7 +247,7 @@ footer {
                         </a>
                     </li>
 
-                    
+
                     <li><a href=""><i class="fas fa-question-circle"></i>
                             <span class="nav-item">help</span>
                         </a>
@@ -260,32 +260,34 @@ footer {
                     </li>
                 </ul>
             </section>
-            
 
+
+<div>
+        <b>{{pub.title}} </b>
             <!-- the play video section  -->
             <video src="{{ pub.video.url }}" controls alt="play video" width="500px" height="500px" type="video/mp4">
           </video>
-            <h5>{{pub.title}} | {{pub.category }}</h5>
-            <h5>{{pub.description}}</h5>
+          <br>
+            <b>{{pub.title}} | Category: {{pub.category }}</b><br>
+            <p>{{pub.description}}</p>
 
             {% if request.user == pub.uploader %}
-            <ul>
-              <li>
+
                 <a href="{% url 'deleteupload' pub.pk %}">Delete</a>
-              </li>
-              <li>
+
+
                 <a href="{% url 'updateupload' pub.pk %}">Update</a>
 
 
-              </li>
-            </ul>
+
             {% endif %}
 
             {% if request.user.is_authenticated %}
-     
 
-<h4> Leave A Comment </h4>
-<form method="post" style="margin-top: 1.3em;">
+<br><br>
+
+<b> Leave A Comment </b>
+<form style='padding-top: 0.5em;' method="post" style="margin-top: 1.3em;">
     {% csrf_token %}
     {{ comment_form.as_p }}
     <button type="submit" >Submit</button>
@@ -293,26 +295,32 @@ footer {
 {% else %}
 <p> <a href='{% url "login" %}'>Login</a> or <a href='{% url "login" %}'>Register</a> to join the discussion </p>
 {% endif %}
-<h4 style='padding: 0em; margin-bottom:0em; '>ALL COMMENTS</h4>
+
+
+<br><br>
+<b>ALL COMMENTS</b>
 
 {% for comment in comments %}
-<ul style='list-style-type: none;'>
+<ul style='padding-top:0; margin-top: 0.5em; list-style-type: none;'>
 
-<li>Name: {{comment.user}} | {{comment.date}}</li>
-<li>Email: {{comment.user.email}}</li>
-<li>Body: {{comment.comment}}</li>
+<li>{{comment.user.username}} | {{comment.date}}</li>
+<li>Content: {{comment.comment}}</li>
 </ul>
 {% endfor %}
 
     </div>
+    </div>
 
-            <h4>Related Videos</h4> 
+
+            <h4>Related Videos</h4>
+            <div style='display: grid; grid-gap: 0.2em; grid-template-columns: repeat(auto-fill, minmax(250px, 2fr));'>
+
             {% for video in related %}
             <div class="card">
+
               <a href='{% url "video_detail" video.pk  %}'> <img src="{{video.cover_thumbnail.url}}" alt=""/></a>
               <h5>{{video.title}}</h5>
           </div>
-
             {% endfor %}
     </main>
     <!-- Footer -->

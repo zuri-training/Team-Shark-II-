@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="dash.css">
+    <title>Welcome To Greenhood</title>
+
+    <style>
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Kumbh Sans", sans-serif;
+  max-width: 100%;
+}
+:root{
+  --primary-color: #000072;
+  --primary-color-2: #2121A8;
+  --primary-color-3: #7575C7;
+  --secondary-color: #E1C202;
+  --secondary-color-2:#EEDC6E;
+  --secondary-color-3:#EFE6AE;
+  --tertiary-color: #A1BCC7;
+  --tertiary-color-2:#181818;
+  --tertiary-color-3:#858585;
+  --tertiary-color-4:#B8B8B8;
+  --background: #FFFFFF;
+  --logo-color: #D4B600;
+}
+
+.container1 {
+  margin: 10px 8%;
+  display: inline;
+}
+h2{ color: #E1C202; font-weight: bolder;}
+h5{ color: #000072; text-align: center;}
+.fa-regular, .fa-circle-down:hover{ color:  #E1C202;}
+
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px
+}
+.profile {
+  display: flex;
+  align-items: center;
+}
+.profile img {
+  margin-right: 10px;
+  cursor: pointer;
+}
+.profile img:hover {
+  border: 2px solid var(--tertiary-color-2);
+  border-radius: 50%;
+}
+
+.search-bar {
+  display: flex;
+  border: 1px solid;
+  justify-content: space-between;
+  width: 600px;
+  border-radius: 15px;
+  padding: 10px 20px;
+}
+.search-bar:hover{
+  border: 2px solid var(--secondary-color-2);
+}
+.search-bar input i {
+  background: transparent;
+  font-size: 1rem;
+  color: aliceblue;
+}
+::placeholder {
+  color: #000;
+}
+.search-bar .search-txt {
+  border: none;
+  background: none;
+  outline: none;
+}
+.search-bar button {
+  background: transparent;
+  color: #000;
+  border: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.MWM{
+  margin: 40px 20px 20px 0px;
+  color:#000072;
+  font-size: large;
+  font-weight: 700;
+}
+.card-movie{
+  width: 90%;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));;
+  gap: 10px;
+}
+.card{
+  width:80%;
+  box-shadow: inset;
+}
+.card:hover{
+  background: var(--tertiary-color);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.card-content{
+  margin: 10px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.card-content i{
+  font-size: 1.5rem;
+}
+.card-img{
+  width:100%;
+}
+footer{
+  margin-top: 50px;
+  padding-top: 10px;
+  background: var(--primary-color-3);
+}
+footer .logo{
+  font-family: 'Inter', sans-serif;
+  color: var(--logo-color);
+  margin: 20px 0px -10px 200px;
+  font-size: 24px;
+  font-weight: 700;
+}
+.column_container{
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  align-items: center;
+  margin: auto;
+}
+ul{
+  margin-top: 50px;
+}
+li{
+  list-style: none;
+}
+li:nth-child(1){
+  font-size: 20px;
+  font-weight: 700;
+}
+li a:nth-child(1){
+  font-weight: 700;
+}
+li a{
+  text-decoration: none;
+  color: var(--background);
+  font-weight: 400;
+  line-height: 30px;
+}
+.copyright_and_brand_icons{
+  margin-left: auto;
+  padding-bottom: 30px;
+  display: flex;
+  gap: 50%;
+  justify-content: center;
+  align-items: center;
+
+}
+.copyright{
+  color:var(--logo-color);
+}
+.copyright span{
+  font-size: 24px;
+}
+.brand_icons{
+  padding: 10px 10px 0 0;
+}
+.brand_icons i{
+  padding: 0px 10px 0 0;
+  color: var(--logo-color);
+  font-size: 24px;
+}
+@media screen and (max-width: 900px) {
+  body {
+    margin: 10px 10%;
+    align-items: center;
+  }
+  .search-bar{
+    border: none;
+   justify-content: flex-end;
+    width: 200px;
+    border-radius: 15px;
+    padding: 10px 20px;
+  }
+
+nav {
+  width: 95%;
+  margin: 30px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.1rem;
+}
+
+  .search-bar input{
+      display:none;
+}
+.search-bar button i{
+  font-size: 1.5rem;
+}
+.profile h5{
+  display: none;
+}
+}
+
+    </style>
+</head>
+<script src="dash.js"></script>
+<body>
+    <div class="container1" >
+        <!--Nav bar open-->
+        <nav>
+            <i class="fa fa-bars menu" aria-hidden="true"></i>
+            <h2><a href='{% url "index" %}'>GREENHOOD</a></h2>
+            <div class="search-bar">
+                <input type="text" placeholder="Search" name="Q" class="search-txt">
+                <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+            </div>
+            <div class="profile" >
+                <h5>Hi {{request.user.username}}</h5>
+            </div>
+        </nav>
+        <!---Nav bar close-->
+
+        <!--Section page-->
+        <div class="section">
+              <!---Most Watched movies-->
+            <h2 class="MWM"><b>Most Watched Movies</b></h2>
+            <div class="card-section">
+                <div class="card-movie">
+                    {% for card in reels %}
+                    <div class="card">
+                        <a href='{% url "video_detail" card.pk  %}'> <img src="{{card.cover_thumbnail.url}}" alt=""/></a>
+                        <div class="card-content">
+                            <h5>{{card.title}}</h5>
+                            <i class="fa-regular fa-circle-down"></i>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <!--Coming soon-->
+            <h3 class="MWM"><b>Coming Soon (Trailers)</b></h3>
+            <div class="card-section">
+                <div class="card-movie">
+                    {% for card in reels %}
+                    <div class="card">
+                        <a href='{% url "video_detail" card.pk  %}'> <img src="{{card.cover_thumbnail.url}}" alt=""/></a>
+                        <div class="card-content">
+                            <h5>{{card.title}}</h5>
+                            <i class="fa-regular fa-circle-down"></i>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---Footer page-->
+    <footer>
+        <div class="logo">GREENHOOD</div>
+        <div class="column_container">
+          <div class="column">
+            <ul>
+              <li><a href="">About Us</a></li>
+              <li><a href="">Vision</a></li>
+              <li><a href="">Careers</a></li>
+              <li><a href="">Terms of Service</a></li>
+              <li><a href="">Donate</a></li>
+            </ul>
+          </div>
+          <div class="column">
+            <ul>
+              <li><a href="">Discover</a></li>
+              <li><a href="">Home</a></li>
+              <li><a href="">Videos</a></li>
+              <li><a href="">Content Creators</a></li>
+              <li><a href="">Advanced Search</a></li>
+            </ul>
+          </div>
+          <div class="column">
+            <ul>
+              <li><a href="">Help</a></li>
+              <li><a href="">Help Centre</a></li>
+              <li><a href="">Report a problem</a></li>
+              <li><a href="">Suggesting Edits</a></li>
+              <li><a href="">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="copyright_and_brand_icons">
+          <div class="copyright">
+            <span>&copy</span> 2022, Col-Films
+          </div>
+          <div class="brand_icons">
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-square-twitter"></i></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></i></a>
+          </div>
+        </div>
+      </footer>
+</body>
+</html>

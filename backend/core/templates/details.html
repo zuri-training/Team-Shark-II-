@@ -1,9 +1,8 @@
-{% extends 'base.html' %}
 
 {% block content  %}
 
 <div class ='board' style=' border: 1px solid black; color: black; background: white; margin-top: 0.7em; padding: 0.5em; margin-bottom: 0.7em'>
-   
+
     <a style='margin: 1em; border: 1px solid black; padding: 0.5em; background: lightgreen; color: black' href ='{% url "index" %}'>  Go To Homepage </a>
     <a  style='margin: 1em; border: 1px solid black; padding: 0.5em; background: lightgreen; color: black' href ='{% url "publist" %}'>  Go To All Publications </a>
     <h3 style='padding: 0em; margin-top: 1em; '>{{pub.title}}|Posted by: {{pub.author}}</h3>
