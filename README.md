@@ -90,4 +90,4 @@ Allow user save data and come back to download
 
 ## Useful information 
 
-Other Contributions are encouraged into this repository.
+*Other Contributions are encouraged into this repository*.
