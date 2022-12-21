@@ -48,9 +48,9 @@ Allow user save data and come back to download
 
 #### Final Design: https://www.figma.com/file/0ZQl7ExjrtJs0LhVSYD62S/TEAM-SHARK2_Greenhood-UI-Design?node-id=21%3A4&t=xrHTHBeDzeVO3dzG-0
 
-#### Project Hosting link 1:  http://gospel367.pythonanywhere.com/
+#### Project Hosting link :  http://gospel367.pythonanywhere.com/
 
-#### Project hosting link 2: http://greenhood.pythonanywhere.com/
+#### Other testing link : http://greenhood.pythonanywhere.com/
 
 <details><summary>Designed and Developed by:</summary>
 
